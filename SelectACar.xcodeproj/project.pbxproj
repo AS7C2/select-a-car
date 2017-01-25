@@ -13,6 +13,13 @@
 		75A76F151E391FB700465B4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A76F141E391FB700465B4E /* Assets.xcassets */; };
 		75A76F181E391FB700465B4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A76F161E391FB700465B4E /* LaunchScreen.storyboard */; };
 		75A76F231E391FB700465B4E /* SelectACarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F221E391FB700465B4E /* SelectACarTests.swift */; };
+		75A76F361E393F4700465B4E /* SelectCarInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F351E393F4700465B4E /* SelectCarInteractorTests.swift */; };
+		75A76F381E39403A00465B4E /* SelectCarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F371E39403A00465B4E /* SelectCarInteractor.swift */; };
+		75A76F3A1E3941AE00465B4E /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F391E3941AE00465B4E /* Manufacturer.swift */; };
+		75A76F3C1E39423700465B4E /* StubManufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F3B1E39423700465B4E /* StubManufacturer.swift */; };
+		75A76F3E1E39457A00465B4E /* SpySelectCarInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F3D1E39457A00465B4E /* SpySelectCarInteractorDelegate.swift */; };
+		75A76F401E39467B00465B4E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F3F1E39467B00465B4E /* Model.swift */; };
+		75A76F421E3946A200465B4E /* StubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F411E3946A200465B4E /* StubModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +43,13 @@
 		75A76F1E1E391FB700465B4E /* SelectACarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelectACarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A76F221E391FB700465B4E /* SelectACarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectACarTests.swift; sourceTree = "<group>"; };
 		75A76F241E391FB700465B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75A76F351E393F4700465B4E /* SelectCarInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCarInteractorTests.swift; sourceTree = "<group>"; };
+		75A76F371E39403A00465B4E /* SelectCarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCarInteractor.swift; sourceTree = "<group>"; };
+		75A76F391E3941AE00465B4E /* Manufacturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
+		75A76F3B1E39423700465B4E /* StubManufacturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubManufacturer.swift; sourceTree = "<group>"; };
+		75A76F3D1E39457A00465B4E /* SpySelectCarInteractorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpySelectCarInteractorDelegate.swift; sourceTree = "<group>"; };
+		75A76F3F1E39467B00465B4E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		75A76F411E3946A200465B4E /* StubModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +97,9 @@
 				75A76F141E391FB700465B4E /* Assets.xcassets */,
 				75A76F161E391FB700465B4E /* LaunchScreen.storyboard */,
 				75A76F191E391FB700465B4E /* Info.plist */,
+				75A76F371E39403A00465B4E /* SelectCarInteractor.swift */,
+				75A76F391E3941AE00465B4E /* Manufacturer.swift */,
+				75A76F3F1E39467B00465B4E /* Model.swift */,
 			);
 			path = SelectACar;
 			sourceTree = "<group>";
@@ -92,6 +109,10 @@
 			children = (
 				75A76F221E391FB700465B4E /* SelectACarTests.swift */,
 				75A76F241E391FB700465B4E /* Info.plist */,
+				75A76F351E393F4700465B4E /* SelectCarInteractorTests.swift */,
+				75A76F3B1E39423700465B4E /* StubManufacturer.swift */,
+				75A76F3D1E39457A00465B4E /* SpySelectCarInteractorDelegate.swift */,
+				75A76F411E3946A200465B4E /* StubModel.swift */,
 			);
 			path = SelectACarTests;
 			sourceTree = "<group>";
@@ -199,7 +220,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A76F401E39467B00465B4E /* Model.swift in Sources */,
 				75A76F101E391FB700465B4E /* ViewController.swift in Sources */,
+				75A76F381E39403A00465B4E /* SelectCarInteractor.swift in Sources */,
+				75A76F3A1E3941AE00465B4E /* Manufacturer.swift in Sources */,
 				75A76F0E1E391FB700465B4E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,6 +233,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				75A76F231E391FB700465B4E /* SelectACarTests.swift in Sources */,
+				75A76F361E393F4700465B4E /* SelectCarInteractorTests.swift in Sources */,
+				75A76F421E3946A200465B4E /* StubModel.swift in Sources */,
+				75A76F3C1E39423700465B4E /* StubManufacturer.swift in Sources */,
+				75A76F3E1E39457A00465B4E /* SpySelectCarInteractorDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +432,7 @@
 				75A76F291E391FB700465B4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		75A76F2A1E391FB700465B4E /* Build configuration list for PBXNativeTarget "SelectACarTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +441,7 @@
 				75A76F2C1E391FB700465B4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
