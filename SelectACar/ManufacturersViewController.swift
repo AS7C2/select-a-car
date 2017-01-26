@@ -15,6 +15,12 @@ class ManufacturersViewController: UITableViewController {
         super.viewDidLoad()
 
         presenter.refresh()
+
+        refreshControl?.addTarget(self, action: #selector(ManufacturersViewController.refresh), for: .valueChanged)
+    }
+
+    func refresh() {
+        presenter.refresh()
     }
 }
 
@@ -34,6 +40,7 @@ extension ManufacturersViewController {
 
 extension ManufacturersViewController: ManufacturersPresenterViewDelegate {
     func manufacturersPresenterDidRefresh(_ presenter: ManufacturersPresenter) {
+        refreshControl?.endRefreshing()
         tableView.reloadData()
     }
 
