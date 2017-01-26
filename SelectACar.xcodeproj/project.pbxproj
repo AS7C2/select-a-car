@@ -20,6 +20,12 @@
 		75A76F3E1E39457A00465B4E /* SpySelectCarInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F3D1E39457A00465B4E /* SpySelectCarInteractorDelegate.swift */; };
 		75A76F401E39467B00465B4E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F3F1E39467B00465B4E /* Model.swift */; };
 		75A76F421E3946A200465B4E /* StubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F411E3946A200465B4E /* StubModel.swift */; };
+		75A76F441E39FF3E00465B4E /* ManufacturersPersenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F431E39FF3E00465B4E /* ManufacturersPersenterTests.swift */; };
+		75A76F461E3A005A00465B4E /* ManufacturersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F451E3A005A00465B4E /* ManufacturersPresenter.swift */; };
+		75A76F481E3A00A500465B4E /* DefaultManufacturersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F471E3A00A500465B4E /* DefaultManufacturersPresenter.swift */; };
+		75A76F4A1E3A04FB00465B4E /* ManufacturersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F491E3A04FB00465B4E /* ManufacturersInteractor.swift */; };
+		75A76F4C1E3A052000465B4E /* SpyManufacturersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */; };
+		75A76F4E1E3A05EB00465B4E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4D1E3A05EB00465B4E /* Page.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +56,12 @@
 		75A76F3D1E39457A00465B4E /* SpySelectCarInteractorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpySelectCarInteractorDelegate.swift; sourceTree = "<group>"; };
 		75A76F3F1E39467B00465B4E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		75A76F411E3946A200465B4E /* StubModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubModel.swift; sourceTree = "<group>"; };
+		75A76F431E39FF3E00465B4E /* ManufacturersPersenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersPersenterTests.swift; sourceTree = "<group>"; };
+		75A76F451E3A005A00465B4E /* ManufacturersPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersPresenter.swift; sourceTree = "<group>"; };
+		75A76F471E3A00A500465B4E /* DefaultManufacturersPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultManufacturersPresenter.swift; sourceTree = "<group>"; };
+		75A76F491E3A04FB00465B4E /* ManufacturersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersInteractor.swift; sourceTree = "<group>"; };
+		75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyManufacturersInteractor.swift; sourceTree = "<group>"; };
+		75A76F4D1E3A05EB00465B4E /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +112,10 @@
 				75A76F371E39403A00465B4E /* SelectCarInteractor.swift */,
 				75A76F391E3941AE00465B4E /* Manufacturer.swift */,
 				75A76F3F1E39467B00465B4E /* Model.swift */,
+				75A76F451E3A005A00465B4E /* ManufacturersPresenter.swift */,
+				75A76F471E3A00A500465B4E /* DefaultManufacturersPresenter.swift */,
+				75A76F491E3A04FB00465B4E /* ManufacturersInteractor.swift */,
+				75A76F4D1E3A05EB00465B4E /* Page.swift */,
 			);
 			path = SelectACar;
 			sourceTree = "<group>";
@@ -113,6 +129,8 @@
 				75A76F3B1E39423700465B4E /* StubManufacturer.swift */,
 				75A76F3D1E39457A00465B4E /* SpySelectCarInteractorDelegate.swift */,
 				75A76F411E3946A200465B4E /* StubModel.swift */,
+				75A76F431E39FF3E00465B4E /* ManufacturersPersenterTests.swift */,
+				75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */,
 			);
 			path = SelectACarTests;
 			sourceTree = "<group>";
@@ -223,6 +241,10 @@
 				75A76F401E39467B00465B4E /* Model.swift in Sources */,
 				75A76F101E391FB700465B4E /* ViewController.swift in Sources */,
 				75A76F381E39403A00465B4E /* SelectCarInteractor.swift in Sources */,
+				75A76F4A1E3A04FB00465B4E /* ManufacturersInteractor.swift in Sources */,
+				75A76F481E3A00A500465B4E /* DefaultManufacturersPresenter.swift in Sources */,
+				75A76F4E1E3A05EB00465B4E /* Page.swift in Sources */,
+				75A76F461E3A005A00465B4E /* ManufacturersPresenter.swift in Sources */,
 				75A76F3A1E3941AE00465B4E /* Manufacturer.swift in Sources */,
 				75A76F0E1E391FB700465B4E /* AppDelegate.swift in Sources */,
 			);
@@ -233,10 +255,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				75A76F231E391FB700465B4E /* SelectACarTests.swift in Sources */,
+				75A76F4C1E3A052000465B4E /* SpyManufacturersInteractor.swift in Sources */,
 				75A76F361E393F4700465B4E /* SelectCarInteractorTests.swift in Sources */,
 				75A76F421E3946A200465B4E /* StubModel.swift in Sources */,
 				75A76F3C1E39423700465B4E /* StubManufacturer.swift in Sources */,
 				75A76F3E1E39457A00465B4E /* SpySelectCarInteractorDelegate.swift in Sources */,
+				75A76F441E39FF3E00465B4E /* ManufacturersPersenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
