@@ -6,6 +6,13 @@
 //  Copyright © 2017 Andrei Sherstniuk. All rights reserved.
 //
 
+protocol SelectCarInteractorDelegate: class {
+    func selectCarInteractor(
+            _ interactor: SelectCarInteractor,
+            didSelectManufacturer manufacturer: Manufacturer,
+            model: Model)
+}
+
 class SelectCarInteractor {
     weak var delegate: SelectCarInteractorDelegate?
 
@@ -24,12 +31,4 @@ class SelectCarInteractor {
         }
     }
 }
-
-protocol SelectCarInteractorDelegate: class {
-    func selectCarInteractor(
-            _ interactor: SelectCarInteractor,
-            didSelectManufacturer manufacturer: Manufacturer,
-            model: Model)
-}
-
 

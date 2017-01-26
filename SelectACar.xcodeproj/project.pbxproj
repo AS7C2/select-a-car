@@ -26,6 +26,7 @@
 		75A76F4A1E3A04FB00465B4E /* ManufacturersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F491E3A04FB00465B4E /* ManufacturersInteractor.swift */; };
 		75A76F4C1E3A052000465B4E /* SpyManufacturersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */; };
 		75A76F4E1E3A05EB00465B4E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4D1E3A05EB00465B4E /* Page.swift */; };
+		75A76F501E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		75A76F491E3A04FB00465B4E /* ManufacturersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersInteractor.swift; sourceTree = "<group>"; };
 		75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyManufacturersInteractor.swift; sourceTree = "<group>"; };
 		75A76F4D1E3A05EB00465B4E /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyManufacturersPresenterViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				75A76F411E3946A200465B4E /* StubModel.swift */,
 				75A76F431E39FF3E00465B4E /* ManufacturersPersenterTests.swift */,
 				75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */,
+				75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift */,
 			);
 			path = SelectACarTests;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A76F501E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift in Sources */,
 				75A76F231E391FB700465B4E /* SelectACarTests.swift in Sources */,
 				75A76F4C1E3A052000465B4E /* SpyManufacturersInteractor.swift in Sources */,
 				75A76F361E393F4700465B4E /* SelectCarInteractorTests.swift in Sources */,

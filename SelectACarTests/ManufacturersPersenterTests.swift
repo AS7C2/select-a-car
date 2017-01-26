@@ -10,43 +10,95 @@ import XCTest
 @testable import SelectACar
 
 class ManufacturersPersenterTests: XCTestCase {
-    func testNew_hasNoData() {
-        let interactor = SpyManufacturersInteractor()
+    func testRefreshSuccess_resetsNextPage() {
+        let interactor = SpyManufacturersInteractor(success: [true, true, true])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
-        XCTAssertEqual(0, presenter.numberOfManufacturers)
+        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        presenter.viewDelegate = viewDelegate
+        let expectation = self.expectation(description: "Expectation")
+        viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
+            XCTAssertEqual(0, interactor.lastRequestedPage!.page)
+            viewDelegate.loadMoreCompletionHandler = {
+                XCTAssertEqual(1, interactor.lastRequestedPage!.page)
+                viewDelegate.refreshCompletionHandler = {
+                    expectation.fulfill()
+                    XCTAssertEqual(0, interactor.lastRequestedPage!.page)
+                }
+                presenter.refresh()
+            }
+            presenter.loadMore()
+        }
+        presenter.refresh()
+        self.waitForExpectations(timeout: 0.1, handler: nil)
     }
 
-    func testNew_onRefresh_requestsFirstDataPage() {
-        let interactor = SpyManufacturersInteractor()
+    func testLoadSuccess_incrementsNextPage() {
+        let interactor = SpyManufacturersInteractor(success: [true, true, true])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
+        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        presenter.viewDelegate = viewDelegate
+        let expectation = self.expectation(description: "Expectation")
+        viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
+            XCTAssertEqual(0, interactor.lastRequestedPage!.page)
+            viewDelegate.loadMoreCompletionHandler = {
+                XCTAssertEqual(1, interactor.lastRequestedPage!.page)
+                viewDelegate.loadMoreCompletionHandler = {
+                    expectation.fulfill()
+                    XCTAssertEqual(2, interactor.lastRequestedPage!.page)
+                }
+                presenter.loadMore()
+            }
+            presenter.loadMore()
+        }
         presenter.refresh()
-        XCTAssertEqual(0, interactor.lastRequestedPage!.page)
-        XCTAssertEqual(15, interactor.lastRequestedPage!.size)
+        self.waitForExpectations(timeout: 0.1, handler: nil)
     }
 
-    func test_onLoadMore_requestsNextDataPage() {
-        let interactor = SpyManufacturersInteractor()
+    func testRefreshFail_doesNotResetNextPage() {
+        let interactor = SpyManufacturersInteractor(success: [true, true, false, true])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
+        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        presenter.viewDelegate = viewDelegate
+        let expectation = self.expectation(description: "Expectation")
+        viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
+            XCTAssertEqual(0, interactor.lastRequestedPage!.page)
+            viewDelegate.loadMoreCompletionHandler = {
+                XCTAssertEqual(1, interactor.lastRequestedPage!.page)
+                viewDelegate.errorCompletionHandler = {
+                    XCTAssertEqual(0, interactor.lastRequestedPage!.page)
+                    viewDelegate.loadMoreCompletionHandler = {
+                        expectation.fulfill()
+                        XCTAssertEqual(2, interactor.lastRequestedPage!.page)
+                    }
+                    presenter.loadMore()
+                }
+                presenter.refresh()
+            }
+            presenter.loadMore()
+        }
         presenter.refresh()
-        presenter.loadMore()
-        XCTAssertEqual(1, interactor.lastRequestedPage!.page)
-        XCTAssertEqual(15, interactor.lastRequestedPage!.size)
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func test_refreshLoadLoadRefresh_requestsCorrectDataPages() {
-        let interactor = SpyManufacturersInteractor()
+    func testLoadFail_doesNotIncrementNextPage() {
+        let interactor = SpyManufacturersInteractor(success: [true, false, false])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
+        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        presenter.viewDelegate = viewDelegate
+        let expectation = self.expectation(description: "Expectation")
+        viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
+            XCTAssertEqual(0, interactor.lastRequestedPage!.page)
+            viewDelegate.errorCompletionHandler = {
+                XCTAssertEqual(1, interactor.lastRequestedPage!.page)
+                viewDelegate.errorCompletionHandler = {
+                    expectation.fulfill()
+                    XCTAssertEqual(1, interactor.lastRequestedPage!.page)
+                }
+                presenter.loadMore()
+            }
+            presenter.loadMore()
+        }
         presenter.refresh()
-        XCTAssertEqual(0, interactor.lastRequestedPage!.page)
-        XCTAssertEqual(15, interactor.lastRequestedPage!.size)
-        presenter.loadMore()
-        XCTAssertEqual(1, interactor.lastRequestedPage!.page)
-        XCTAssertEqual(15, interactor.lastRequestedPage!.size)
-        presenter.loadMore()
-        XCTAssertEqual(2, interactor.lastRequestedPage!.page)
-        XCTAssertEqual(15, interactor.lastRequestedPage!.size)
-        presenter.refresh()
-        XCTAssertEqual(0, interactor.lastRequestedPage!.page)
-        XCTAssertEqual(15, interactor.lastRequestedPage!.size)
+        self.waitForExpectations(timeout: 0.1, handler: nil)
     }
 }

@@ -6,6 +6,11 @@
 //  Copyright © 2017 Andrei Sherstniuk. All rights reserved.
 //
 
+enum ManufacturersInteractorResult {
+    case Success([Manufacturer])
+    case Failure(Error)
+}
+
 protocol ManufacturersInteractor {
-    func get(page: Page)
+    func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void)
 }
