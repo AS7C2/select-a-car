@@ -11,7 +11,7 @@ import XCTest
 
 class ManufacturersPersenterTests: XCTestCase {
     func testRefreshSuccess_resetsNextPage() {
-        let interactor = SpyManufacturersInteractor(success: [true, true, true])
+        let interactor = SpyManufacturersInteractor(success: [true, true, true], resultsCount: [15, 15, 15])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
@@ -32,11 +32,11 @@ class ManufacturersPersenterTests: XCTestCase {
             presenter.loadMore()
         }
         presenter.refresh()
-        self.waitForExpectations(timeout: 0.1, handler: nil)
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testLoadSuccess_incrementsNextPage() {
-        let interactor = SpyManufacturersInteractor(success: [true, true, true])
+        let interactor = SpyManufacturersInteractor(success: [true, true, true], resultsCount: [15, 15, 15])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
@@ -57,11 +57,11 @@ class ManufacturersPersenterTests: XCTestCase {
             presenter.loadMore()
         }
         presenter.refresh()
-        self.waitForExpectations(timeout: 0.1, handler: nil)
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testRefreshFail_doesNotResetNextPage() {
-        let interactor = SpyManufacturersInteractor(success: [true, true, false, true])
+        let interactor = SpyManufacturersInteractor(success: [true, true, false, true], resultsCount: [15, 15, 0, 15])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
@@ -91,7 +91,7 @@ class ManufacturersPersenterTests: XCTestCase {
     }
 
     func testLoadFail_doesNotIncrementNextPage() {
-        let interactor = SpyManufacturersInteractor(success: [true, false, false])
+        let interactor = SpyManufacturersInteractor(success: [true, false, false], resultsCount: [15, 0, 0])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
@@ -112,11 +112,11 @@ class ManufacturersPersenterTests: XCTestCase {
             presenter.loadMore()
         }
         presenter.refresh()
-        self.waitForExpectations(timeout: 0.1, handler: nil)
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
 
     func testRefreshSuccess_ContainsData() {
-        let interactor = SpyManufacturersInteractor(success: [true, false, false])
+        let interactor = SpyManufacturersInteractor(success: [true, false, false], resultsCount: [15, 0, 0])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
@@ -130,6 +130,31 @@ class ManufacturersPersenterTests: XCTestCase {
             }
         }
         presenter.refresh()
-        self.waitForExpectations(timeout: 0.1, handler: nil)
+        self.waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testLoadMore_NoData_ShouldNotIncrementNextPage() {
+                let interactor = SpyManufacturersInteractor(success: [true, true, true], resultsCount: [15, 0, 0])
+        let presenter = DefaultManufacturersPresenter(interactor: interactor)
+        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        presenter.viewDelegate = viewDelegate
+        let expectation = self.expectation(description: "Expectation")
+        viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
+            XCTAssertEqual(0, interactor.lastRequestedPage!.page)
+            XCTAssertEqual(15, presenter.numberOfManufacturers)
+            viewDelegate.loadMoreCompletionHandler = {
+                XCTAssertEqual(1, interactor.lastRequestedPage!.page)
+                XCTAssertEqual(15, presenter.numberOfManufacturers)
+                viewDelegate.loadMoreCompletionHandler = {
+                    expectation.fulfill()
+                    XCTAssertEqual(1, interactor.lastRequestedPage!.page)
+                    XCTAssertEqual(15, presenter.numberOfManufacturers)
+                }
+                presenter.loadMore()
+            }
+            presenter.loadMore()
+        }
+        presenter.refresh()
+        self.waitForExpectations(timeout: 1, handler: nil)
     }
 }

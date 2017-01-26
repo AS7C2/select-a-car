@@ -16,25 +16,27 @@ enum SpyManufacturersInteractorError: Error {
 class SpyManufacturersInteractor: ManufacturersInteractor {
     var lastRequestedPage: Page?
     var success: [Bool]
-    var successIndex = 0
+    var resultsCount: [Int]
+    var resultIndex = 0
 
-    init(success: [Bool]) {
+    init(success: [Bool], resultsCount: [Int]) {
         self.success = success
+        self.resultsCount = resultsCount
     }
 
     func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
         DispatchQueue.main.async {
             self.lastRequestedPage = page
-            if self.success[self.successIndex] {
+            if self.success[self.resultIndex] {
                 var manufacturers: [Manufacturer] = []
-                for _ in 0..<page.size {
+                for _ in 0..<self.resultsCount[self.resultIndex] {
                     manufacturers.append(StubManufacturer())
                 }
                 completionHandler(.Success(manufacturers))
             } else {
                 completionHandler(.Failure(SpyManufacturersInteractorError.Generic))
             }
-            self.successIndex += 1
+            self.resultIndex += 1
         }
     }
 }

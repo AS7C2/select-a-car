@@ -45,8 +45,10 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
         self.interactor.get(page:nextPage) { result in
             switch result {
                 case .Success(let manufacturers):
-                    self.manufacturers.append(contentsOf: manufacturers)
-                    self.nextPage = self.nextPage.next()
+                    if (manufacturers.count > 0) {
+                        self.manufacturers.append(contentsOf: manufacturers)
+                        self.nextPage = self.nextPage.next()
+                    }
                     if let viewDelegate = self.viewDelegate {
                         viewDelegate.manufacturersPresenter(self, didLoadMoreManufacturers: manufacturers.count)
                     }

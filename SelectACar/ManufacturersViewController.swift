@@ -36,6 +36,16 @@ extension ManufacturersViewController {
         cell.manufactuer = manufacturer
         return cell
     }
+
+    override func tableView(
+            _ tableView: UITableView,
+            willDisplay cell: UITableViewCell,
+            forRowAt indexPath: IndexPath)
+    {
+        if (indexPath.row == presenter.numberOfManufacturers - 1) {
+            presenter.loadMore()
+        }
+    }
 }
 
 extension ManufacturersViewController: ManufacturersPresenterViewDelegate {
@@ -45,7 +55,15 @@ extension ManufacturersViewController: ManufacturersPresenterViewDelegate {
     }
 
     func manufacturersPresenter(_ presenter: ManufacturersPresenter, didLoadMoreManufacturers count: Int) {
-
+        let numberOfManufacturers = presenter.numberOfManufacturers
+        let previousNumberOfManufacturers = numberOfManufacturers - count
+        var indexPaths: [IndexPath] = []
+        for index in previousNumberOfManufacturers..<numberOfManufacturers {
+            indexPaths.append(IndexPath(row: index, section: 0))
+        }
+        tableView.beginUpdates()
+        tableView.insertRows(at: indexPaths, with: .bottom)
+        tableView.endUpdates()
     }
 
     func manufacturersPresenter(_ presenter: ManufacturersPresenter, didFailWithError error: Error) {

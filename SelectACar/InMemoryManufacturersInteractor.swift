@@ -84,9 +84,13 @@ class InMemoryManufacturersInteractor: ManufacturersInteractor {
     func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
         DispatchQueue.main.async {
             let startIndex = page.page * page.size
-            let endIndex = min(startIndex + page.size, self.data.count)
-            let manufacturers = Array(self.data[startIndex..<endIndex])
-            completionHandler(.Success(manufacturers))
+            if (startIndex >= self.data.count) {
+                completionHandler(.Success([]))
+            } else {
+                let endIndex = min(startIndex + page.size, self.data.count)
+                let manufacturers = Array(self.data[startIndex..<endIndex])
+                completionHandler(.Success(manufacturers))
+            }
         }
     }
 }
