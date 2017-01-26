@@ -15,21 +15,19 @@ enum SpyManufacturersInteractorError: Error {
 
 class SpyManufacturersInteractor: ManufacturersInteractor {
     var lastRequestedPage: Page?
-    var success: [Bool]
-    var resultsCount: [Int]
+    var results: [(success: Bool, count: Int?)]
     var resultIndex = 0
 
-    init(success: [Bool], resultsCount: [Int]) {
-        self.success = success
-        self.resultsCount = resultsCount
+    init(results: [(Bool, Int?)]) {
+        self.results = results
     }
 
     func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
         DispatchQueue.main.async {
             self.lastRequestedPage = page
-            if self.success[self.resultIndex] {
+            if self.results[self.resultIndex].success {
                 var manufacturers: [Manufacturer] = []
-                for _ in 0..<self.resultsCount[self.resultIndex] {
+                for _ in 0..<self.results[self.resultIndex].count! {
                     manufacturers.append(StubManufacturer())
                 }
                 completionHandler(.Success(manufacturers))

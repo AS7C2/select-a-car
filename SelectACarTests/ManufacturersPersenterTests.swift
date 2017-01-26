@@ -11,7 +11,7 @@ import XCTest
 
 class ManufacturersPersenterTests: XCTestCase {
     func testRefreshSuccess_resetsNextPage() {
-        let interactor = SpyManufacturersInteractor(success: [true, true, true], resultsCount: [15, 15, 15])
+        let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (true, 15)])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
@@ -36,7 +36,7 @@ class ManufacturersPersenterTests: XCTestCase {
     }
 
     func testLoadSuccess_incrementsNextPage() {
-        let interactor = SpyManufacturersInteractor(success: [true, true, true], resultsCount: [15, 15, 15])
+        let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (true, 15)])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
@@ -61,7 +61,7 @@ class ManufacturersPersenterTests: XCTestCase {
     }
 
     func testRefreshFail_doesNotResetNextPage() {
-        let interactor = SpyManufacturersInteractor(success: [true, true, false, true], resultsCount: [15, 15, 0, 15])
+        let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (false, nil), (true, 15)])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
@@ -91,7 +91,7 @@ class ManufacturersPersenterTests: XCTestCase {
     }
 
     func testLoadFail_doesNotIncrementNextPage() {
-        let interactor = SpyManufacturersInteractor(success: [true, false, false], resultsCount: [15, 0, 0])
+        let interactor = SpyManufacturersInteractor(results: [(true, 15), (false, nil), (false, nil)])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
@@ -116,7 +116,7 @@ class ManufacturersPersenterTests: XCTestCase {
     }
 
     func testRefreshSuccess_ContainsData() {
-        let interactor = SpyManufacturersInteractor(success: [true, false, false], resultsCount: [15, 0, 0])
+        let interactor = SpyManufacturersInteractor(results: [(true, 15), (false, nil), (false, nil)])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
@@ -134,7 +134,7 @@ class ManufacturersPersenterTests: XCTestCase {
     }
 
     func testLoadMore_NoData_ShouldNotIncrementNextPage() {
-                let interactor = SpyManufacturersInteractor(success: [true, true, true], resultsCount: [15, 0, 0])
+        let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 0), (true, 0)])
         let presenter = DefaultManufacturersPresenter(interactor: interactor)
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
