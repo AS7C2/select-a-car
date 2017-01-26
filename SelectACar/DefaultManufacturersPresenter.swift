@@ -7,10 +7,16 @@
 //
 
 class DefaultManufacturersPresenter: ManufacturersPresenter {
-    let numberOfManufacturers = 0
     weak var viewDelegate: ManufacturersPresenterViewDelegate?
     private let interactor: ManufacturersInteractor
     private var nextPage: Page
+    private var manufacturers: [Manufacturer] = []
+
+    var numberOfManufacturers: Int {
+        get {
+            return manufacturers.count
+        }
+    }
 
     init(interactor: ManufacturersInteractor) {
         self.interactor = interactor
@@ -21,7 +27,8 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
         let newNextPage = Page(page: 0, size: 15)
         self.interactor.get(page:newNextPage) { result in
             switch result {
-                case .Success(_):
+                case .Success(let manufacturers):
+                    self.manufacturers = manufacturers
                     self.nextPage = newNextPage.next()
                     if let viewDelegate = self.viewDelegate {
                         viewDelegate.manufacturersPresenterDidRefresh(self)
@@ -38,6 +45,7 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
         self.interactor.get(page:nextPage) { result in
             switch result {
                 case .Success(let manufacturers):
+                    self.manufacturers.append(contentsOf: manufacturers)
                     self.nextPage = self.nextPage.next()
                     if let viewDelegate = self.viewDelegate {
                         viewDelegate.manufacturersPresenter(self, didLoadMoreManufacturers: manufacturers.count)
@@ -48,5 +56,9 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
                     }
             }
         }
+    }
+
+    func manufacturer(atIndex index: Int) -> Manufacturer {
+        return manufacturers[index]
     }
 }

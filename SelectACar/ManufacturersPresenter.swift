@@ -19,6 +19,8 @@ protocol ManufacturersPresenter {
 
     var numberOfManufacturers: Int { get }
 
+    func manufacturer(atIndex index: Int) -> Manufacturer
+
     func refresh()
 
     func loadMore()
