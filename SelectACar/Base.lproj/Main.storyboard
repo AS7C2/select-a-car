@@ -9,16 +9,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Manufacturers Table View Controller-->
+        <!--Manufacturers View Controller-->
         <scene sceneID="VMd-6A-zE7">
             <objects>
-                <tableViewController storyboardIdentifier="Manufacturers" id="1SY-8Y-kzg" customClass="ManufacturersTableViewController" customModule="SelectACar" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Manufacturers" id="1SY-8Y-kzg" customClass="ManufacturersViewController" customModule="SelectACar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6Km-ZH-05G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Manufacturer" id="I9B-qg-VIA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Manufacturer" id="I9B-qg-VIA" customClass="ManufacturerCell" customModule="SelectACar" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I9B-qg-VIA" id="zGv-8z-03X">
@@ -39,6 +39,9 @@
                                         <constraint firstItem="IdU-JY-QbL" firstAttribute="leading" secondItem="zGv-8z-03X" secondAttribute="leading" constant="15" id="wdF-cb-KIa"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="IdU-JY-QbL" id="c2Z-hv-zeS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

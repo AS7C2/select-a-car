@@ -26,10 +26,11 @@
 		75A76F4C1E3A052000465B4E /* SpyManufacturersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */; };
 		75A76F4E1E3A05EB00465B4E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4D1E3A05EB00465B4E /* Page.swift */; };
 		75A76F501E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift */; };
-		75A76F521E3A34A900465B4E /* ManufacturersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F511E3A34A900465B4E /* ManufacturersTableViewController.swift */; };
+		75A76F521E3A34A900465B4E /* ManufacturersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */; };
 		75A76F541E3A37F100465B4E /* ManufacturersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */; };
 		75A76F561E3A3D6E00465B4E /* InMemoryManufacturersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F551E3A3D6E00465B4E /* InMemoryManufacturersInteractor.swift */; };
 		75A76F581E3A3DEE00465B4E /* DefaultManufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F571E3A3DEE00465B4E /* DefaultManufacturer.swift */; };
+		75A76F5A1E3A55CB00465B4E /* ManufacturerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F591E3A55CB00465B4E /* ManufacturerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,10 +67,11 @@
 		75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyManufacturersInteractor.swift; sourceTree = "<group>"; };
 		75A76F4D1E3A05EB00465B4E /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyManufacturersPresenterViewDelegate.swift; sourceTree = "<group>"; };
-		75A76F511E3A34A900465B4E /* ManufacturersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersTableViewController.swift; sourceTree = "<group>"; };
+		75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersViewController.swift; sourceTree = "<group>"; };
 		75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersCoordinator.swift; sourceTree = "<group>"; };
 		75A76F551E3A3D6E00465B4E /* InMemoryManufacturersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryManufacturersInteractor.swift; sourceTree = "<group>"; };
 		75A76F571E3A3DEE00465B4E /* DefaultManufacturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultManufacturer.swift; sourceTree = "<group>"; };
+		75A76F591E3A55CB00465B4E /* ManufacturerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +125,11 @@
 				75A76F471E3A00A500465B4E /* DefaultManufacturersPresenter.swift */,
 				75A76F491E3A04FB00465B4E /* ManufacturersInteractor.swift */,
 				75A76F4D1E3A05EB00465B4E /* Page.swift */,
-				75A76F511E3A34A900465B4E /* ManufacturersTableViewController.swift */,
+				75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */,
 				75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */,
 				75A76F551E3A3D6E00465B4E /* InMemoryManufacturersInteractor.swift */,
 				75A76F571E3A3DEE00465B4E /* DefaultManufacturer.swift */,
+				75A76F591E3A55CB00465B4E /* ManufacturerCell.swift */,
 			);
 			path = SelectACar;
 			sourceTree = "<group>";
@@ -257,7 +260,8 @@
 				75A76F4E1E3A05EB00465B4E /* Page.swift in Sources */,
 				75A76F541E3A37F100465B4E /* ManufacturersCoordinator.swift in Sources */,
 				75A76F581E3A3DEE00465B4E /* DefaultManufacturer.swift in Sources */,
-				75A76F521E3A34A900465B4E /* ManufacturersTableViewController.swift in Sources */,
+				75A76F5A1E3A55CB00465B4E /* ManufacturerCell.swift in Sources */,
+				75A76F521E3A34A900465B4E /* ManufacturersViewController.swift in Sources */,
 				75A76F461E3A005A00465B4E /* ManufacturersPresenter.swift in Sources */,
 				75A76F3A1E3941AE00465B4E /* Manufacturer.swift in Sources */,
 				75A76F561E3A3D6E00465B4E /* InMemoryManufacturersInteractor.swift in Sources */,
