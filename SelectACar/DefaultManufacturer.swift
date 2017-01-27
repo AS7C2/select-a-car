@@ -7,6 +7,6 @@
 //
 
 struct DefaultManufacturer: Manufacturer {
-    let id: Int
+    let id: String
     let name: String
 }

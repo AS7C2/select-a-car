@@ -9,6 +9,6 @@
 @testable import SelectACar
 
 struct StubManufacturer: Manufacturer {
-    let id = 107
+    let id = "107"
     let name = "Bentley"
 }

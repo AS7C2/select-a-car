@@ -135,7 +135,7 @@ class ManufacturersPersenterTests: XCTestCase {
             expectation.fulfill()
             XCTAssertEqual(15, presenter.numberOfManufacturers)
             for i in 0..<presenter.numberOfManufacturers {
-                XCTAssertEqual(107, presenter.manufacturer(atIndex: i).id)
+                XCTAssertEqual("107", presenter.manufacturer(atIndex: i).id)
                 XCTAssertEqual("Bentley", presenter.manufacturer(atIndex: i).name)
             }
         }
