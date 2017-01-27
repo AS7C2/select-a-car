@@ -33,7 +33,10 @@ extension ManufacturersViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Manufacturer", for: indexPath)
                 as! ManufacturerCell
         let manufacturer = presenter.manufacturer(atIndex: indexPath.row)
-        cell.manufactuer = manufacturer
+        cell.manufacturer = manufacturer
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.cyan
+        }
         return cell
     }
 
@@ -49,7 +52,7 @@ extension ManufacturersViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ManufacturerCell
-        presenter.select(manufacturer: cell.manufactuer!)
+        presenter.select(manufacturer: cell.manufacturer!)
     }
 }
 
@@ -60,15 +63,15 @@ extension ManufacturersViewController: ManufacturersPresenterViewDelegate {
     }
 
     func manufacturersPresenter(_ presenter: ManufacturersPresenter, didLoadMoreManufacturers count: Int) {
-        let numberOfManufacturers = presenter.numberOfManufacturers
-        let previousNumberOfManufacturers = numberOfManufacturers - count
-        var indexPaths: [IndexPath] = []
-        for index in previousNumberOfManufacturers..<numberOfManufacturers {
-            indexPaths.append(IndexPath(row: index, section: 0))
-        }
-        tableView.beginUpdates()
-        tableView.insertRows(at: indexPaths, with: .bottom)
-        tableView.endUpdates()
+            let numberOfManufacturers = presenter.numberOfManufacturers
+            let previousNumberOfManufacturers = numberOfManufacturers - count
+            var indexPaths: [IndexPath] = []
+            for index in previousNumberOfManufacturers..<numberOfManufacturers {
+                indexPaths.append(IndexPath(row: index, section: 0))
+            }
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: indexPaths, with: .bottom)
+            self.tableView.endUpdates()
     }
 
     func manufacturersPresenter(_ presenter: ManufacturersPresenter, didFailWithError error: Error) {
