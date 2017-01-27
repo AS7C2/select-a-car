@@ -13,6 +13,7 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
     private let selectCarInteractor: SelectCarInteractor
     private var nextPage: Page
     private var manufacturers: [Manufacturer] = []
+    private var isLoading = false
 
     var numberOfManufacturers: Int {
         get {
@@ -27,8 +28,10 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
     }
 
     func refresh() {
+        isLoading = true
         let newNextPage = Page(number: 0, size: 15)
         self.manufacturersInteractor.get(page:newNextPage) { result in
+            self.isLoading = false
             switch result {
                 case .Success(let manufacturers):
                     self.manufacturers = manufacturers
@@ -45,7 +48,16 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
     }
 
     func loadMore() {
+        if isLoading {
+            if let viewDelegate = self.viewDelegate {
+                viewDelegate.manufacturersPresenterDidCancel(self)
+            }
+            return
+        }
+
+        isLoading = true
         self.manufacturersInteractor.get(page:nextPage) { result in
+            self.isLoading = false
             switch result {
                 case .Success(let manufacturers):
                     if (manufacturers.count > 0) {

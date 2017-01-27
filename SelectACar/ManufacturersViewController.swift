@@ -58,7 +58,7 @@ extension ManufacturersViewController {
 
 extension ManufacturersViewController: ManufacturersPresenterViewDelegate {
     func manufacturersPresenterDidRefresh(_ presenter: ManufacturersPresenter) {
-        refreshControl?.endRefreshing()
+        endRefreshing()
         tableView.reloadData()
     }
 
@@ -79,11 +79,19 @@ extension ManufacturersViewController: ManufacturersPresenterViewDelegate {
             let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true) {
-                if let refreshControl = self.refreshControl {
-                    if refreshControl.isRefreshing {
-                        refreshControl.endRefreshing()
-                    }
-                }
+                self.endRefreshing()
+            }
+        }
+    }
+
+    func manufacturersPresenterDidCancel(_ presenter: ManufacturersPresenter) {
+        endRefreshing()
+    }
+
+    func endRefreshing() {
+        if let refreshControl = self.refreshControl {
+            if refreshControl.isRefreshing {
+                refreshControl.endRefreshing()
             }
         }
     }

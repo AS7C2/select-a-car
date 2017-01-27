@@ -17,13 +17,19 @@ class SpyManufacturersInteractor: ManufacturersInteractor {
     var lastRequestedPage: Page?
     var results: [(success: Bool, count: Int?)]
     var resultIndex = 0
+    var executionTime: Double
 
-    init(results: [(Bool, Int?)]) {
+    init(results: [(Bool, Int?)], executionTime: Double) {
         self.results = results
+        self.executionTime = executionTime
+    }
+
+    convenience init(results: [(Bool, Int?)]) {
+        self.init(results: results, executionTime: 0)
     }
 
     func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + executionTime) {
             self.lastRequestedPage = page
             if self.results[self.resultIndex].success {
                 var manufacturers: [Manufacturer] = []

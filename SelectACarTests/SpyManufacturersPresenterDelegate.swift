@@ -15,6 +15,7 @@ class SpyManufacturersPresenterDelegate:
     var refreshCompletionHandler: (() -> Void)?
     var errorCompletionHandler: (() -> Void)?
     var loadMoreCompletionHandler: (() -> Void)?
+    var cancelCompletionHandler: (() -> Void)?
     var numberOfManufacturerSelectedCalls: Int = 0
 
     func manufacturersPresenterDidRefresh(_ presenter: ManufacturersPresenter) {
@@ -37,5 +38,11 @@ class SpyManufacturersPresenterDelegate:
 
     func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Manufacturer) {
         numberOfManufacturerSelectedCalls += 1
+    }
+
+    func manufacturersPresenterDidCancel(_ presenter: ManufacturersPresenter) {
+        if let cancelCompletionHandler = cancelCompletionHandler {
+            cancelCompletionHandler()
+        }
     }
 }

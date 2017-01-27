@@ -212,4 +212,31 @@ class ManufacturersPersenterTests: XCTestCase {
         presenter.refresh()
         self.waitForExpectations(timeout: 1, handler: nil)
     }
+
+    func testRefreshInProgress_RejectsLoadMoreRequest() {
+        let manufacturersInteractor = SpyManufacturersInteractor(results: [(true, 15), (true, 15)], executionTime: 0.5)
+        let selectCarInteractor = SelectCarInteractor()
+        let presenter = DefaultManufacturersPresenter(
+                manufacturersInteractor: manufacturersInteractor,
+                selectCarInteractor: selectCarInteractor)
+        let delegate = SpyManufacturersPresenterDelegate()
+        presenter.viewDelegate = delegate
+        let cancelExpectation = self.expectation(description: "Cancel Expectation")
+        let refreshExpectation = self.expectation(description: "Refresh Expectation")
+        delegate.cancelCompletionHandler = {
+            cancelExpectation.fulfill()
+        }
+        delegate.refreshCompletionHandler = {
+            refreshExpectation.fulfill()
+            XCTAssertEqual(15, presenter.numberOfManufacturers)
+        }
+        presenter.refresh()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            presenter.loadMore()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            XCTAssertEqual(15, presenter.numberOfManufacturers)
+        }
+        self.waitForExpectations(timeout: 2, handler: nil)
+    }
 }

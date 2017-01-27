@@ -11,6 +11,8 @@ protocol ManufacturersPresenterViewDelegate: class {
 
     func manufacturersPresenter(_ presenter: ManufacturersPresenter, didLoadMoreManufacturers count: Int)
 
+    func manufacturersPresenterDidCancel(_ presenter: ManufacturersPresenter)
+
     func manufacturersPresenter(_ presenter: ManufacturersPresenter, didFailWithError error: Error)
 }
 
