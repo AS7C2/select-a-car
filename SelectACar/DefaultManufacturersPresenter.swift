@@ -8,7 +8,8 @@
 
 class DefaultManufacturersPresenter: ManufacturersPresenter {
     weak var viewDelegate: ManufacturersPresenterViewDelegate?
-    private let interactor: ManufacturersInteractor
+    private let manufacturersInteractor: ManufacturersInteractor
+    private let selectCarInteractor: SelectCarInteractor
     private var nextPage: Page
     private var manufacturers: [Manufacturer] = []
 
@@ -18,14 +19,15 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
         }
     }
 
-    init(interactor: ManufacturersInteractor) {
-        self.interactor = interactor
+    init(manufacturersInteractor: ManufacturersInteractor, selectCarInteractor: SelectCarInteractor) {
+        self.manufacturersInteractor = manufacturersInteractor
+        self.selectCarInteractor = selectCarInteractor
         nextPage = Page(page: 0, size: 15)
     }
 
     func refresh() {
         let newNextPage = Page(page: 0, size: 15)
-        self.interactor.get(page:newNextPage) { result in
+        self.manufacturersInteractor.get(page:newNextPage) { result in
             switch result {
                 case .Success(let manufacturers):
                     self.manufacturers = manufacturers
@@ -42,7 +44,7 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
     }
 
     func loadMore() {
-        self.interactor.get(page:nextPage) { result in
+        self.manufacturersInteractor.get(page:nextPage) { result in
             switch result {
                 case .Success(let manufacturers):
                     if (manufacturers.count > 0) {
@@ -62,5 +64,9 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
 
     func manufacturer(atIndex index: Int) -> Manufacturer {
         return manufacturers[index]
+    }
+
+    func select(manufacturer: Manufacturer) {
+        selectCarInteractor.select(manufacturer: manufacturer)
     }
 }

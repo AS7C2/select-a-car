@@ -24,4 +24,6 @@ protocol ManufacturersPresenter {
     func refresh()
 
     func loadMore()
+
+    func select(manufacturer: Manufacturer)
 }

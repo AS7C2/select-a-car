@@ -8,10 +8,16 @@
 
 @testable import SelectACar
 
-class SpySelectCarInteractorDelegate: SelectCarInteractorDelegate {
+class SpySelectCarInteractorDelegate: SelectCarManufacturerDelegate, SelectCarDelegate {
     private(set) var numberOfCarSelectedCalls: Int = 0
+    private(set) var numberOfManufacturerSelectedCalls: Int = 0
     private(set) var lastSelectedManufacturer: Manufacturer?
     private(set) var lastSelectedModel: Model?
+
+    func selectCarInteractor(_ interactor: SelectCarInteractor, didSelectManufacturer manufacturer: Manufacturer) {
+        numberOfManufacturerSelectedCalls += 1
+        lastSelectedManufacturer = manufacturer
+    }
 
     func selectCarInteractor(
             _ interactor: SelectCarInteractor,

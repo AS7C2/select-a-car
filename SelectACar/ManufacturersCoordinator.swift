@@ -20,7 +20,9 @@ class ManufacturersCoordinator {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "Manufacturers")
                 as! ManufacturersViewController
-        let presenter = DefaultManufacturersPresenter(interactor: InMemoryManufacturersInteractor())
+        let presenter = DefaultManufacturersPresenter(
+                manufacturersInteractor: InMemoryManufacturersInteractor(),
+                selectCarInteractor: SelectCarInteractor())
         viewController.presenter = presenter
         presenter.viewDelegate = viewController
         self.navigationController = UINavigationController(rootViewController: viewController)

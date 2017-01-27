@@ -12,7 +12,9 @@ import XCTest
 class ManufacturersPersenterTests: XCTestCase {
     func testRefreshSuccess_resetsNextPage() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (true, 15)])
-        let presenter = DefaultManufacturersPresenter(interactor: interactor)
+        let presenter = DefaultManufacturersPresenter(
+                manufacturersInteractor: interactor,
+                selectCarInteractor: SelectCarInteractor())
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -37,7 +39,9 @@ class ManufacturersPersenterTests: XCTestCase {
 
     func testLoadSuccess_incrementsNextPage() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (true, 15)])
-        let presenter = DefaultManufacturersPresenter(interactor: interactor)
+        let presenter = DefaultManufacturersPresenter(
+                manufacturersInteractor: interactor,
+                selectCarInteractor: SelectCarInteractor())
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -62,7 +66,9 @@ class ManufacturersPersenterTests: XCTestCase {
 
     func testRefreshFail_doesNotResetNextPage() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (false, nil), (true, 15)])
-        let presenter = DefaultManufacturersPresenter(interactor: interactor)
+        let presenter = DefaultManufacturersPresenter(
+                manufacturersInteractor: interactor,
+                selectCarInteractor: SelectCarInteractor())
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -92,7 +98,9 @@ class ManufacturersPersenterTests: XCTestCase {
 
     func testLoadFail_doesNotIncrementNextPage() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (false, nil), (false, nil)])
-        let presenter = DefaultManufacturersPresenter(interactor: interactor)
+        let presenter = DefaultManufacturersPresenter(
+                manufacturersInteractor: interactor,
+                selectCarInteractor: SelectCarInteractor())
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -117,7 +125,9 @@ class ManufacturersPersenterTests: XCTestCase {
 
     func testRefreshSuccess_ContainsData() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (false, nil), (false, nil)])
-        let presenter = DefaultManufacturersPresenter(interactor: interactor)
+        let presenter = DefaultManufacturersPresenter(
+                manufacturersInteractor: interactor,
+                selectCarInteractor: SelectCarInteractor())
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -135,7 +145,9 @@ class ManufacturersPersenterTests: XCTestCase {
 
     func testLoadMore_NoData_ShouldNotIncrementNextPage() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 0), (true, 0)])
-        let presenter = DefaultManufacturersPresenter(interactor: interactor)
+        let presenter = DefaultManufacturersPresenter(
+                manufacturersInteractor: interactor,
+                selectCarInteractor: SelectCarInteractor())
         let viewDelegate = SpyManufacturersPresenterViewDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -153,6 +165,28 @@ class ManufacturersPersenterTests: XCTestCase {
                 presenter.loadMore()
             }
             presenter.loadMore()
+        }
+        presenter.refresh()
+        self.waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testSelectedManufacturer_PropagatesToSelectCarInteractor() {
+        let manufacturersInteractor = SpyManufacturersInteractor(results: [(true, 15)])
+        let selectCarInteractor = SelectCarInteractor()
+        let selectCarDelegate = SpySelectCarInteractorDelegate()
+        selectCarInteractor.selectCarManufacturerDelegate = selectCarDelegate
+        selectCarInteractor.selectCarDelegate = selectCarDelegate
+        let presenter = DefaultManufacturersPresenter(
+                manufacturersInteractor: manufacturersInteractor,
+                selectCarInteractor: selectCarInteractor)
+        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        presenter.viewDelegate = viewDelegate
+        let expectation = self.expectation(description: "Expectation")
+        viewDelegate.refreshCompletionHandler = {
+            expectation.fulfill()
+            let manufacturer = presenter.manufacturer(atIndex: 0)
+            presenter.select(manufacturer: manufacturer)
+            XCTAssertEqual(1,  selectCarDelegate.numberOfManufacturerSelectedCalls)
         }
         presenter.refresh()
         self.waitForExpectations(timeout: 1, handler: nil)
