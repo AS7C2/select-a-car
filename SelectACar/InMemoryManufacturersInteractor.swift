@@ -86,7 +86,7 @@ class InMemoryManufacturersInteractor: ManufacturersInteractor {
     ]
 
     func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let diceRoll = Int(arc4random_uniform(6) + 1)
             if (diceRoll < 3) {
                 completionHandler(.Failure(InMemoryManufacturersInteractorError.Generic))
