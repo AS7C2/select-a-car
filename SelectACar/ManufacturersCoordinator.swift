@@ -20,12 +20,22 @@ class ManufacturersCoordinator {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "Manufacturers")
                 as! ManufacturersViewController
+        let selectCarInteractor = SelectCarInteractor()
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: InMemoryManufacturersInteractor(),
-                selectCarInteractor: SelectCarInteractor())
+                selectCarInteractor: selectCarInteractor)
+        selectCarInteractor.selectCarManufacturerDelegate = presenter
         viewController.presenter = presenter
         presenter.viewDelegate = viewController
+        presenter.coordinatorDelegate = self
         self.navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
+    }
+}
+
+extension ManufacturersCoordinator: ManufacturersPresenterCoordinatorDelegate {
+    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Manufacturer) {
+        print(manufacturer.id)
+        print(manufacturer.name)
     }
 }

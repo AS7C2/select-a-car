@@ -8,6 +8,7 @@
 
 class DefaultManufacturersPresenter: ManufacturersPresenter {
     weak var viewDelegate: ManufacturersPresenterViewDelegate?
+    weak var coordinatorDelegate: ManufacturersPresenterCoordinatorDelegate?
     private let manufacturersInteractor: ManufacturersInteractor
     private let selectCarInteractor: SelectCarInteractor
     private var nextPage: Page
@@ -68,5 +69,13 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
 
     func select(manufacturer: Manufacturer) {
         selectCarInteractor.select(manufacturer: manufacturer)
+    }
+}
+
+extension DefaultManufacturersPresenter: SelectCarManufacturerDelegate {
+    func selectCarInteractor(_ interactor: SelectCarInteractor, didSelectManufacturer manufacturer: Manufacturer) {
+        if let coordinatorDelegate = coordinatorDelegate {
+            coordinatorDelegate.manufacturersPresenter(self, didSelectManufacturer: manufacturer)
+        }
     }
 }

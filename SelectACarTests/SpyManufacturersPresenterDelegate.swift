@@ -1,5 +1,5 @@
 //
-//  SpyManufacturersPresenterViewDelegate.swift
+//  SpyManufacturersPresenterDelegate.swift
 //  SelectACar
 //
 //  Created by Andrei Sherstniuk on 1/26/17.
@@ -8,10 +8,14 @@
 
 @testable import SelectACar
 
-class SpyManufacturersPresenterViewDelegate: ManufacturersPresenterViewDelegate {
+class SpyManufacturersPresenterDelegate:
+        ManufacturersPresenterViewDelegate,
+        ManufacturersPresenterCoordinatorDelegate
+{
     var refreshCompletionHandler: (() -> Void)?
     var errorCompletionHandler: (() -> Void)?
     var loadMoreCompletionHandler: (() -> Void)?
+    var numberOfManufacturerSelectedCalls: Int = 0
 
     func manufacturersPresenterDidRefresh(_ presenter: ManufacturersPresenter) {
         if let refreshCompletionHandler = refreshCompletionHandler {
@@ -29,5 +33,9 @@ class SpyManufacturersPresenterViewDelegate: ManufacturersPresenterViewDelegate 
         if let errorCompletionHandler = errorCompletionHandler {
             errorCompletionHandler()
         }
+    }
+
+    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Manufacturer) {
+        numberOfManufacturerSelectedCalls += 1
     }
 }

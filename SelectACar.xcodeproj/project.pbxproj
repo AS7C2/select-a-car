@@ -25,7 +25,7 @@
 		75A76F4A1E3A04FB00465B4E /* ManufacturersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F491E3A04FB00465B4E /* ManufacturersInteractor.swift */; };
 		75A76F4C1E3A052000465B4E /* SpyManufacturersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */; };
 		75A76F4E1E3A05EB00465B4E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4D1E3A05EB00465B4E /* Page.swift */; };
-		75A76F501E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift */; };
+		75A76F501E3A1B2E00465B4E /* SpyManufacturersPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterDelegate.swift */; };
 		75A76F521E3A34A900465B4E /* ManufacturersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */; };
 		75A76F541E3A37F100465B4E /* ManufacturersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */; };
 		75A76F561E3A3D6E00465B4E /* InMemoryManufacturersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F551E3A3D6E00465B4E /* InMemoryManufacturersInteractor.swift */; };
@@ -66,7 +66,7 @@
 		75A76F491E3A04FB00465B4E /* ManufacturersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersInteractor.swift; sourceTree = "<group>"; };
 		75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyManufacturersInteractor.swift; sourceTree = "<group>"; };
 		75A76F4D1E3A05EB00465B4E /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
-		75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyManufacturersPresenterViewDelegate.swift; sourceTree = "<group>"; };
+		75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyManufacturersPresenterDelegate.swift; sourceTree = "<group>"; };
 		75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersViewController.swift; sourceTree = "<group>"; };
 		75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersCoordinator.swift; sourceTree = "<group>"; };
 		75A76F551E3A3D6E00465B4E /* InMemoryManufacturersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryManufacturersInteractor.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				75A76F411E3946A200465B4E /* StubModel.swift */,
 				75A76F431E39FF3E00465B4E /* ManufacturersPersenterTests.swift */,
 				75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */,
-				75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift */,
+				75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterDelegate.swift */,
 			);
 			path = SelectACarTests;
 			sourceTree = "<group>";
@@ -275,7 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75A76F501E3A1B2E00465B4E /* SpyManufacturersPresenterViewDelegate.swift in Sources */,
+				75A76F501E3A1B2E00465B4E /* SpyManufacturersPresenterDelegate.swift in Sources */,
 				75A76F231E391FB700465B4E /* SelectACarTests.swift in Sources */,
 				75A76F4C1E3A052000465B4E /* SpyManufacturersInteractor.swift in Sources */,
 				75A76F361E393F4700465B4E /* SelectCarInteractorTests.swift in Sources */,

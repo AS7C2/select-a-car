@@ -46,6 +46,11 @@ extension ManufacturersViewController {
             presenter.loadMore()
         }
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ManufacturerCell
+        presenter.select(manufacturer: cell.manufactuer!)
+    }
 }
 
 extension ManufacturersViewController: ManufacturersPresenterViewDelegate {

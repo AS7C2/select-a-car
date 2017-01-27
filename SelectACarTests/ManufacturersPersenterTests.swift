@@ -15,7 +15,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
                 selectCarInteractor: SelectCarInteractor())
-        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
@@ -42,7 +42,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
                 selectCarInteractor: SelectCarInteractor())
-        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
@@ -69,7 +69,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
                 selectCarInteractor: SelectCarInteractor())
-        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
@@ -101,7 +101,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
                 selectCarInteractor: SelectCarInteractor())
-        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
@@ -128,7 +128,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
                 selectCarInteractor: SelectCarInteractor())
-        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = {
@@ -148,7 +148,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
                 selectCarInteractor: SelectCarInteractor())
-        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
@@ -179,7 +179,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: manufacturersInteractor,
                 selectCarInteractor: selectCarInteractor)
-        let viewDelegate = SpyManufacturersPresenterViewDelegate()
+        let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = {
@@ -187,6 +187,27 @@ class ManufacturersPersenterTests: XCTestCase {
             let manufacturer = presenter.manufacturer(atIndex: 0)
             presenter.select(manufacturer: manufacturer)
             XCTAssertEqual(1,  selectCarDelegate.numberOfManufacturerSelectedCalls)
+        }
+        presenter.refresh()
+        self.waitForExpectations(timeout: 1, handler: nil)
+    }
+
+    func testSelectedManufacturer_RespondsToCoordinatorDelegate() {
+        let manufacturersInteractor = SpyManufacturersInteractor(results: [(true, 15)])
+        let selectCarInteractor = SelectCarInteractor()
+        let presenter = DefaultManufacturersPresenter(
+                manufacturersInteractor: manufacturersInteractor,
+                selectCarInteractor: selectCarInteractor)
+        selectCarInteractor.selectCarManufacturerDelegate = presenter
+        let delegate = SpyManufacturersPresenterDelegate()
+        presenter.viewDelegate = delegate
+        presenter.coordinatorDelegate = delegate
+        let expectation = self.expectation(description: "Expectation")
+        delegate.refreshCompletionHandler = { [unowned delegate] in
+            expectation.fulfill()
+            let manufacturer = presenter.manufacturer(atIndex: 0)
+            presenter.select(manufacturer: manufacturer)
+            XCTAssertEqual(1, delegate.numberOfManufacturerSelectedCalls)
         }
         presenter.refresh()
         self.waitForExpectations(timeout: 1, handler: nil)
