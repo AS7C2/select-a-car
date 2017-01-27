@@ -23,11 +23,11 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
     init(manufacturersInteractor: ManufacturersInteractor, selectCarInteractor: SelectCarInteractor) {
         self.manufacturersInteractor = manufacturersInteractor
         self.selectCarInteractor = selectCarInteractor
-        nextPage = Page(page: 0, size: 15)
+        nextPage = Page(number: 0, size: 15)
     }
 
     func refresh() {
-        let newNextPage = Page(page: 0, size: 15)
+        let newNextPage = Page(number: 0, size: 15)
         self.manufacturersInteractor.get(page:newNextPage) { result in
             switch result {
                 case .Success(let manufacturers):

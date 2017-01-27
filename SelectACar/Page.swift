@@ -7,10 +7,10 @@
 //
 
 struct Page {
-    let page: Int
+    let number: Int
     let size: Int
 
     func next() -> Page {
-        return Page(page: page + 1, size: size)
+        return Page(number: number + 1, size: size)
     }
 }

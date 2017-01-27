@@ -91,7 +91,7 @@ class InMemoryManufacturersInteractor: ManufacturersInteractor {
             if (diceRoll < 3) {
                 completionHandler(.Failure(InMemoryManufacturersInteractorError.Generic))
             } else {
-                let startIndex = page.page * page.size
+                let startIndex = page.number * page.size
                 if (startIndex >= self.data.count) {
                     completionHandler(.Success([]))
                 } else {
