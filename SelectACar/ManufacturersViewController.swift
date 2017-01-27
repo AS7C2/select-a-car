@@ -75,6 +75,16 @@ extension ManufacturersViewController: ManufacturersPresenterViewDelegate {
     }
 
     func manufacturersPresenter(_ presenter: ManufacturersPresenter, didFailWithError error: Error) {
-
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true) {
+                if let refreshControl = self.refreshControl {
+                    if refreshControl.isRefreshing {
+                        refreshControl.endRefreshing()
+                    }
+                }
+            }
+        }
     }
 }

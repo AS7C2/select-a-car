@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum InMemoryManufacturersInteractorError: Error {
+    case Generic
+}
+
 class InMemoryManufacturersInteractor: ManufacturersInteractor {
     let data = [
         DefaultManufacturer(id: 1, name: "Adler"),
@@ -83,13 +87,18 @@ class InMemoryManufacturersInteractor: ManufacturersInteractor {
 
     func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
         DispatchQueue.main.async {
-            let startIndex = page.page * page.size
-            if (startIndex >= self.data.count) {
-                completionHandler(.Success([]))
+            let diceRoll = Int(arc4random_uniform(6) + 1)
+            if (diceRoll < 3) {
+                completionHandler(.Failure(InMemoryManufacturersInteractorError.Generic))
             } else {
-                let endIndex = min(startIndex + page.size, self.data.count)
-                let manufacturers = Array(self.data[startIndex..<endIndex])
-                completionHandler(.Success(manufacturers))
+                let startIndex = page.page * page.size
+                if (startIndex >= self.data.count) {
+                    completionHandler(.Success([]))
+                } else {
+                    let endIndex = min(startIndex + page.size, self.data.count)
+                    let manufacturers = Array(self.data[startIndex..<endIndex])
+                    completionHandler(.Success(manufacturers))
+                }
             }
         }
     }
