@@ -6,6 +6,5 @@
 //  Copyright © 2017 Andrei Sherstniuk. All rights reserved.
 //
 
-protocol Model {    
-    var name: String { get }
+protocol Model: Entity {
 }

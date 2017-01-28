@@ -6,7 +6,5 @@
 //  Copyright © 2017 Andrei Sherstniuk. All rights reserved.
 //
 
-protocol Manufacturer {
-    var id: String { get }
-    var name: String { get }
+protocol Manufacturer: Entity {
 }

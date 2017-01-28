@@ -9,5 +9,6 @@
 @testable import SelectACar
 
 struct StubModel: Model {
+    let id = "Continental Flying Spur"
     let name = "Continental Flying Spur"
 }
