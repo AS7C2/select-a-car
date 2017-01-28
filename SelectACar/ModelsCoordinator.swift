@@ -1,19 +1,18 @@
 //
-//  ManufacturersCoordinator.swift
+//  ModelsCoordinator.swift
 //  SelectACar
 //
-//  Created by Andrei Sherstniuk on 1/26/17.
+//  Created by Andrei Sherstniuk on 1/28/17.
 //  Copyright © 2017 Andrei Sherstniuk. All rights reserved.
 //
 
 import UIKit
 
-class ManufacturersCoordinator {
-    let window: UIWindow
-    var navigationController: UINavigationController!
+class ModelsCoordinator {
+    let navigationController: UINavigationController
 
-    init(window: UIWindow) {
-        self.window = window
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
 
     func start() {
@@ -28,14 +27,12 @@ class ManufacturersCoordinator {
         viewController.presenter = presenter
         presenter.viewDelegate = viewController
         presenter.coordinatorDelegate = self
-        self.navigationController = UINavigationController(rootViewController: viewController)
-        window.rootViewController = navigationController
+        self.navigationController.pushViewController(viewController, animated: true)
     }
 }
 
-extension ManufacturersCoordinator: ManufacturersPresenterCoordinatorDelegate {
+extension ModelsCoordinator: ManufacturersPresenterCoordinatorDelegate {
     func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Entity) {
-        let modelsCoordinator = ModelsCoordinator(navigationController: navigationController)
-        modelsCoordinator.start()
+
     }
 }
