@@ -20,7 +20,7 @@ class ManufacturersCoordinator {
 
     func start() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "Manufacturers")
+        let viewController = storyboard.instantiateViewController(withIdentifier: "EntitiesViewController")
                 as! ManufacturersViewController
         self.selectCarInteractor = SelectCarInteractor()
         let urlBuilder = ManufacturersPagedURLBuilder(configuration: DefaultWebConfiguration())

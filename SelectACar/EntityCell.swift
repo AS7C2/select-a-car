@@ -1,5 +1,5 @@
 //
-//  ManufacturerCell.swift
+//  EntityCell.swift
 //  SelectACar
 //
 //  Created by Andrei Sherstniuk on 1/26/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ManufacturerCell: UITableViewCell {
+class EntityCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
 
     var entity: Entity? {

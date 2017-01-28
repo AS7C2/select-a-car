@@ -44,7 +44,7 @@
 		75A76F521E3A34A900465B4E /* ManufacturersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */; };
 		75A76F541E3A37F100465B4E /* ManufacturersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */; };
 		75A76F581E3A3DEE00465B4E /* DefaultManufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F571E3A3DEE00465B4E /* DefaultManufacturer.swift */; };
-		75A76F5A1E3A55CB00465B4E /* ManufacturerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F591E3A55CB00465B4E /* ManufacturerCell.swift */; };
+		75A76F5A1E3A55CB00465B4E /* EntityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F591E3A55CB00465B4E /* EntityCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +99,7 @@
 		75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersViewController.swift; sourceTree = "<group>"; };
 		75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersCoordinator.swift; sourceTree = "<group>"; };
 		75A76F571E3A3DEE00465B4E /* DefaultManufacturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultManufacturer.swift; sourceTree = "<group>"; };
-		75A76F591E3A55CB00465B4E /* ManufacturerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerCell.swift; sourceTree = "<group>"; };
+		75A76F591E3A55CB00465B4E /* EntityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +156,7 @@
 				75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */,
 				75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */,
 				75A76F571E3A3DEE00465B4E /* DefaultManufacturer.swift */,
-				75A76F591E3A55CB00465B4E /* ManufacturerCell.swift */,
+				75A76F591E3A55CB00465B4E /* EntityCell.swift */,
 				750D44D71E3B9A4400EA9DE0 /* WebEntitiesInteractor.swift */,
 				750D44D91E3CA1F400EA9DE0 /* WebConfiguration.swift */,
 				750D44DB1E3CA25400EA9DE0 /* DefaultWebConfiguration.swift */,
@@ -313,7 +313,7 @@
 				75A76F541E3A37F100465B4E /* ManufacturersCoordinator.swift in Sources */,
 				75A76F581E3A3DEE00465B4E /* DefaultManufacturer.swift in Sources */,
 				750D44E61E3CB72F00EA9DE0 /* EntityFactory.swift in Sources */,
-				75A76F5A1E3A55CB00465B4E /* ManufacturerCell.swift in Sources */,
+				75A76F5A1E3A55CB00465B4E /* EntityCell.swift in Sources */,
 				75A76F521E3A34A900465B4E /* ManufacturersViewController.swift in Sources */,
 				75A76F461E3A005A00465B4E /* EntitiesPresenter.swift in Sources */,
 				750D44F01E3CC2A400EA9DE0 /* PagedURLBuilder.swift in Sources */,

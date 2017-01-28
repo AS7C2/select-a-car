@@ -32,8 +32,8 @@ extension ManufacturersViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Manufacturer", for: indexPath)
-                as! ManufacturerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EntityCell", for: indexPath)
+                as! EntityCell
         let manufacturer = presenter.entity(atIndex: indexPath.row)
         cell.entity = manufacturer
         if indexPath.row % 2 == 0 {
@@ -53,7 +53,7 @@ extension ManufacturersViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! ManufacturerCell
+        let cell = tableView.cellForRow(at: indexPath) as! EntityCell
         presenter.select(entity: cell.entity!)
     }
 }
