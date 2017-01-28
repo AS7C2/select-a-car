@@ -16,13 +16,8 @@ protocol ManufacturersPresenterViewDelegate: class {
     func manufacturersPresenter(_ presenter: ManufacturersPresenter, didFailWithError error: Error)
 }
 
-protocol ManufacturersPresenterCoordinatorDelegate: class {
-    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Entity)
-}
-
 protocol ManufacturersPresenter {
     weak var viewDelegate: ManufacturersPresenterViewDelegate? { get set }
-    weak var coordinatorDelegate: ManufacturersPresenterCoordinatorDelegate? { get set }
 
     var numberOfManufacturers: Int { get }
 

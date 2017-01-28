@@ -8,15 +8,11 @@
 
 @testable import SelectACar
 
-class SpyManufacturersPresenterDelegate:
-        ManufacturersPresenterViewDelegate,
-        ManufacturersPresenterCoordinatorDelegate
-{
+class SpyManufacturersPresenterDelegate: ManufacturersPresenterViewDelegate {
     var refreshCompletionHandler: (() -> Void)?
     var errorCompletionHandler: (() -> Void)?
     var loadMoreCompletionHandler: (() -> Void)?
     var cancelCompletionHandler: (() -> Void)?
-    var numberOfManufacturerSelectedCalls: Int = 0
 
     func manufacturersPresenterDidRefresh(_ presenter: ManufacturersPresenter) {
         if let refreshCompletionHandler = refreshCompletionHandler {
@@ -34,10 +30,6 @@ class SpyManufacturersPresenterDelegate:
         if let errorCompletionHandler = errorCompletionHandler {
             errorCompletionHandler()
         }
-    }
-
-    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Entity) {
-        numberOfManufacturerSelectedCalls += 1
     }
 
     func manufacturersPresenterDidCancel(_ presenter: ManufacturersPresenter) {

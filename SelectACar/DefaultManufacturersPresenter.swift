@@ -8,7 +8,6 @@
 
 class DefaultManufacturersPresenter: ManufacturersPresenter {
     weak var viewDelegate: ManufacturersPresenterViewDelegate?
-    weak var coordinatorDelegate: ManufacturersPresenterCoordinatorDelegate?
     private let manufacturersInteractor: ManufacturersInteractor
     private let entitySelectionStrategy: EntitySelectionStrategy
     private var nextPage: Page
@@ -81,13 +80,5 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
 
     func select(manufacturer: Entity) {
         entitySelectionStrategy.select(entity: manufacturer)
-    }
-}
-
-extension DefaultManufacturersPresenter: SelectCarManufacturerDelegate {
-    func selectCarInteractor(_ interactor: SelectCarInteractor, didSelectManufacturer manufacturer: Manufacturer) {
-        if let coordinatorDelegate = coordinatorDelegate {
-            coordinatorDelegate.manufacturersPresenter(self, didSelectManufacturer: manufacturer)
-        }
     }
 }

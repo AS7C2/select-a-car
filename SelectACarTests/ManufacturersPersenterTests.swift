@@ -192,27 +192,6 @@ class ManufacturersPersenterTests: XCTestCase {
         self.waitForExpectations(timeout: 1, handler: nil)
     }
 
-    func testSelectedManufacturer_RespondsToCoordinatorDelegate() {
-        let manufacturersInteractor = SpyManufacturersInteractor(results: [(true, 15)])
-        let selectCarInteractor = SelectCarInteractor()
-        let presenter = DefaultManufacturersPresenter(
-                manufacturersInteractor: manufacturersInteractor,
-                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
-        selectCarInteractor.selectCarManufacturerDelegate = presenter
-        let delegate = SpyManufacturersPresenterDelegate()
-        presenter.viewDelegate = delegate
-        presenter.coordinatorDelegate = delegate
-        let expectation = self.expectation(description: "Expectation")
-        delegate.refreshCompletionHandler = { [unowned delegate] in
-            expectation.fulfill()
-            let manufacturer = presenter.manufacturer(atIndex: 0)
-            presenter.select(manufacturer: manufacturer)
-            XCTAssertEqual(1, delegate.numberOfManufacturerSelectedCalls)
-        }
-        presenter.refresh()
-        self.waitForExpectations(timeout: 1, handler: nil)
-    }
-
     func testRefreshInProgress_RejectsLoadMoreRequest() {
         let manufacturersInteractor = SpyManufacturersInteractor(results: [(true, 15), (true, 15)], executionTime: 0.5)
         let selectCarInteractor = SelectCarInteractor()
