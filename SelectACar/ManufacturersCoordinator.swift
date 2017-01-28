@@ -23,9 +23,7 @@ class ManufacturersCoordinator {
         let viewController = storyboard.instantiateViewController(withIdentifier: "Manufacturers")
                 as! ManufacturersViewController
         self.selectCarInteractor = SelectCarInteractor()
-        let urlBuilder = ManufacturersPagedURLBuilder(
-                configuration: DefaultWebConfiguration(),
-                path: "/v1/car-types/manufacturer")
+        let urlBuilder = ManufacturersPagedURLBuilder(configuration: DefaultWebConfiguration())
         let presenter = DefaultManufacturersPresenter(
                 title: "Manufacturers",
                 manufacturersInteractor: WebManufacturersInteractor(

@@ -10,14 +10,12 @@ import Foundation
 
 class ManufacturersPagedURLBuilder: PagedURLBuilder {
     let configuration: WebConfiguration
-    let path: String
 
-    init(configuration: WebConfiguration, path: String) {
+    init(configuration: WebConfiguration) {
         self.configuration = configuration
-        self.path = path
     }
 
     func build(page: Page) -> URL {
-        return URL(string:"\(configuration.baseURL)\(path)?page=\(page.number)&pageSize=\(page.size)&wa_key=\(configuration.clientSecret)")!
+        return URL(string:"\(configuration.baseURL)/v1/car-types/manufacturer?page=\(page.number)&pageSize=\(page.size)&wa_key=\(configuration.clientSecret)")!
     }
 }

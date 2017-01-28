@@ -23,7 +23,6 @@ class ModelsCoordinator {
                 as! ManufacturersViewController
         let urlBuilder = ModelsPagedURLBuilder(
                 configuration: DefaultWebConfiguration(),
-                path: "/v1/car-types/main-types",
                 manufacturer: self.selectCarInteractor.selectedManufacturer()!)
         let presenter = DefaultManufacturersPresenter(
                 title: "Models",
