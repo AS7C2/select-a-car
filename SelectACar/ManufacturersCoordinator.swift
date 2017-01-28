@@ -23,10 +23,13 @@ class ManufacturersCoordinator {
         let viewController = storyboard.instantiateViewController(withIdentifier: "Manufacturers")
                 as! ManufacturersViewController
         self.selectCarInteractor = SelectCarInteractor()
+        let urlBuilder = DefaultPagedURLBuilder(
+                configuration: DefaultWebConfiguration(),
+                path: "/v1/car-types/manufacturer")
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: WebManufacturersInteractor(
-                        configuration: DefaultWebConfiguration(),
-                        entityFactory: ManufactorerFactory()),
+                        urlBuilder: urlBuilder,
+                        entityFactory: ManufacturerFactory()),
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
         selectCarInteractor.selectCarManufacturerDelegate = self
         viewController.presenter = presenter

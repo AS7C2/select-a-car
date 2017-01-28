@@ -1,5 +1,5 @@
 //
-//  WebConfiguration.swift
+//  PagedURLBuilder.swift
 //  SelectACar
 //
 //  Created by Andrei Sherstniuk on 1/28/17.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol WebConfiguration {
-    var baseURL: String { get }
-    var clientSecret: String { get }
+protocol PagedURLBuilder {
+    func build(page: Page) -> URL
 }

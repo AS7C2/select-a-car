@@ -15,10 +15,12 @@
 		750D44E21E3CB11000EA9DE0 /* ManufacturerSelectionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D44E11E3CB11000EA9DE0 /* ManufacturerSelectionStrategy.swift */; };
 		750D44E41E3CB54100EA9DE0 /* ModelsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D44E31E3CB54100EA9DE0 /* ModelsCoordinator.swift */; };
 		750D44E61E3CB72F00EA9DE0 /* EntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D44E51E3CB72F00EA9DE0 /* EntityFactory.swift */; };
-		750D44E81E3CB76500EA9DE0 /* ManufactorerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D44E71E3CB76500EA9DE0 /* ManufactorerFactory.swift */; };
+		750D44E81E3CB76500EA9DE0 /* ManufacturerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D44E71E3CB76500EA9DE0 /* ManufacturerFactory.swift */; };
 		750D44EA1E3CB78C00EA9DE0 /* ModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D44E91E3CB78C00EA9DE0 /* ModelFactory.swift */; };
 		750D44EC1E3CB7BF00EA9DE0 /* DefaultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D44EB1E3CB7BF00EA9DE0 /* DefaultModel.swift */; };
 		750D44EE1E3CB91500EA9DE0 /* ModelSelectionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D44ED1E3CB91500EA9DE0 /* ModelSelectionStrategy.swift */; };
+		750D44F01E3CC2A400EA9DE0 /* PagedURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D44EF1E3CC2A400EA9DE0 /* PagedURLBuilder.swift */; };
+		750D44F21E3CC33400EA9DE0 /* DefaultPagedURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D44F11E3CC33400EA9DE0 /* DefaultPagedURLBuilder.swift */; };
 		75A76F0E1E391FB700465B4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F0D1E391FB700465B4E /* AppDelegate.swift */; };
 		75A76F131E391FB700465B4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A76F111E391FB700465B4E /* Main.storyboard */; };
 		75A76F151E391FB700465B4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A76F141E391FB700465B4E /* Assets.xcassets */; };
@@ -64,10 +66,12 @@
 		750D44E11E3CB11000EA9DE0 /* ManufacturerSelectionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerSelectionStrategy.swift; sourceTree = "<group>"; };
 		750D44E31E3CB54100EA9DE0 /* ModelsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsCoordinator.swift; sourceTree = "<group>"; };
 		750D44E51E3CB72F00EA9DE0 /* EntityFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityFactory.swift; sourceTree = "<group>"; };
-		750D44E71E3CB76500EA9DE0 /* ManufactorerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufactorerFactory.swift; sourceTree = "<group>"; };
+		750D44E71E3CB76500EA9DE0 /* ManufacturerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerFactory.swift; sourceTree = "<group>"; };
 		750D44E91E3CB78C00EA9DE0 /* ModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFactory.swift; sourceTree = "<group>"; };
 		750D44EB1E3CB7BF00EA9DE0 /* DefaultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultModel.swift; sourceTree = "<group>"; };
 		750D44ED1E3CB91500EA9DE0 /* ModelSelectionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSelectionStrategy.swift; sourceTree = "<group>"; };
+		750D44EF1E3CC2A400EA9DE0 /* PagedURLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedURLBuilder.swift; sourceTree = "<group>"; };
+		750D44F11E3CC33400EA9DE0 /* DefaultPagedURLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPagedURLBuilder.swift; sourceTree = "<group>"; };
 		75A76F0A1E391FB700465B4E /* SelectACar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectACar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A76F0D1E391FB700465B4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75A76F121E391FB700465B4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,10 +166,12 @@
 				750D44E11E3CB11000EA9DE0 /* ManufacturerSelectionStrategy.swift */,
 				750D44E31E3CB54100EA9DE0 /* ModelsCoordinator.swift */,
 				750D44E51E3CB72F00EA9DE0 /* EntityFactory.swift */,
-				750D44E71E3CB76500EA9DE0 /* ManufactorerFactory.swift */,
+				750D44E71E3CB76500EA9DE0 /* ManufacturerFactory.swift */,
 				750D44E91E3CB78C00EA9DE0 /* ModelFactory.swift */,
 				750D44EB1E3CB7BF00EA9DE0 /* DefaultModel.swift */,
 				750D44ED1E3CB91500EA9DE0 /* ModelSelectionStrategy.swift */,
+				750D44EF1E3CC2A400EA9DE0 /* PagedURLBuilder.swift */,
+				750D44F11E3CC33400EA9DE0 /* DefaultPagedURLBuilder.swift */,
 			);
 			path = SelectACar;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 			files = (
 				750D44D81E3B9A4400EA9DE0 /* WebManufacturersInteractor.swift in Sources */,
 				750D44DA1E3CA1F400EA9DE0 /* WebConfiguration.swift in Sources */,
+				750D44F21E3CC33400EA9DE0 /* DefaultPagedURLBuilder.swift in Sources */,
 				75A76F401E39467B00465B4E /* Model.swift in Sources */,
 				750D44DC1E3CA25400EA9DE0 /* DefaultWebConfiguration.swift in Sources */,
 				75A76F381E39403A00465B4E /* SelectCarInteractor.swift in Sources */,
@@ -308,12 +315,13 @@
 				75A76F5A1E3A55CB00465B4E /* ManufacturerCell.swift in Sources */,
 				75A76F521E3A34A900465B4E /* ManufacturersViewController.swift in Sources */,
 				75A76F461E3A005A00465B4E /* ManufacturersPresenter.swift in Sources */,
+				750D44F01E3CC2A400EA9DE0 /* PagedURLBuilder.swift in Sources */,
 				750D44EA1E3CB78C00EA9DE0 /* ModelFactory.swift in Sources */,
 				750D44E01E3CB0DB00EA9DE0 /* EntitySelectionStrategy.swift in Sources */,
 				75A76F3A1E3941AE00465B4E /* Manufacturer.swift in Sources */,
 				750D44EC1E3CB7BF00EA9DE0 /* DefaultModel.swift in Sources */,
 				75A76F561E3A3D6E00465B4E /* InMemoryManufacturersInteractor.swift in Sources */,
-				750D44E81E3CB76500EA9DE0 /* ManufactorerFactory.swift in Sources */,
+				750D44E81E3CB76500EA9DE0 /* ManufacturerFactory.swift in Sources */,
 				750D44E41E3CB54100EA9DE0 /* ModelsCoordinator.swift in Sources */,
 				75A76F0E1E391FB700465B4E /* AppDelegate.swift in Sources */,
 			);

@@ -9,18 +9,16 @@
 import Foundation
 
 class WebManufacturersInteractor: ManufacturersInteractor {
-    let configuration: WebConfiguration
+    let urlBuilder: PagedURLBuilder
     let entityFactory: EntityFactory
 
-    init(configuration: WebConfiguration, entityFactory: EntityFactory) {
-        self.configuration = configuration
+    init(urlBuilder: PagedURLBuilder, entityFactory: EntityFactory) {
+        self.urlBuilder = urlBuilder
         self.entityFactory = entityFactory
     }
 
     func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
-        let url = URL(
-                string:"?page=\(page.number)&pageSize=\(page.size)&wa_key=\(configuration.clientSecret)",
-                relativeTo:configuration.baseURL.appendingPathComponent("v1/car-types/manufacturer"))!
+        let url = urlBuilder.build(page: page)
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 DispatchQueue.main.async {

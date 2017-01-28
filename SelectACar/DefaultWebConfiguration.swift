@@ -9,6 +9,6 @@
 import Foundation
 
 class DefaultWebConfiguration: WebConfiguration {
-    let baseURL: URL = URL(string: "<BASE URL>")!
-    let clientSecret: String = "<CLIENT SECRET>"
+    let baseURL = "<BASE URL>"
+    let clientSecret = "<CLIENT SECRET>"
 }

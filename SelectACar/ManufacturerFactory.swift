@@ -6,7 +6,7 @@
 //  Copyright © 2017 Andrei Sherstniuk. All rights reserved.
 //
 
-class ManufactorerFactory: EntityFactory {
+class ManufacturerFactory: EntityFactory {
     func create(id: String, name: String) -> Entity {
         return DefaultManufacturer(id: id, name: name)
     }
