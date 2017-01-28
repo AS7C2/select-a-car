@@ -14,7 +14,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (true, 15)])
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
-                selectCarInteractor: SelectCarInteractor())
+                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -41,7 +41,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (true, 15)])
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
-                selectCarInteractor: SelectCarInteractor())
+                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -68,7 +68,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (false, nil), (true, 15)])
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
-                selectCarInteractor: SelectCarInteractor())
+                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -100,7 +100,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (false, nil), (false, nil)])
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
-                selectCarInteractor: SelectCarInteractor())
+                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -127,7 +127,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (false, nil), (false, nil)])
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
-                selectCarInteractor: SelectCarInteractor())
+                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -147,7 +147,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 0), (true, 0)])
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: interactor,
-                selectCarInteractor: SelectCarInteractor())
+                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -178,7 +178,7 @@ class ManufacturersPersenterTests: XCTestCase {
         selectCarInteractor.selectCarDelegate = selectCarDelegate
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: manufacturersInteractor,
-                selectCarInteractor: selectCarInteractor)
+                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
@@ -197,7 +197,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let selectCarInteractor = SelectCarInteractor()
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: manufacturersInteractor,
-                selectCarInteractor: selectCarInteractor)
+                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
         selectCarInteractor.selectCarManufacturerDelegate = presenter
         let delegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = delegate
@@ -218,7 +218,7 @@ class ManufacturersPersenterTests: XCTestCase {
         let selectCarInteractor = SelectCarInteractor()
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: manufacturersInteractor,
-                selectCarInteractor: selectCarInteractor)
+                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
         let delegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = delegate
         let cancelExpectation = self.expectation(description: "Cancel Expectation")

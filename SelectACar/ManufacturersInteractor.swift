@@ -7,7 +7,7 @@
 //
 
 enum ManufacturersInteractorResult {
-    case Success([Manufacturer])
+    case Success([Entity])
     case Failure(Error)
 }
 

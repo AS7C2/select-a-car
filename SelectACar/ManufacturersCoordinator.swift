@@ -23,7 +23,7 @@ class ManufacturersCoordinator {
         let selectCarInteractor = SelectCarInteractor()
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: WebManufacturersInteractor(configuration: DefaultWebConfiguration()),
-                selectCarInteractor: selectCarInteractor)
+                entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
         selectCarInteractor.selectCarManufacturerDelegate = presenter
         viewController.presenter = presenter
         presenter.viewDelegate = viewController
@@ -34,7 +34,7 @@ class ManufacturersCoordinator {
 }
 
 extension ManufacturersCoordinator: ManufacturersPresenterCoordinatorDelegate {
-    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Manufacturer) {
+    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Entity) {
         print(manufacturer.id)
         print(manufacturer.name)
     }

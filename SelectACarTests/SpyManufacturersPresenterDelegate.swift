@@ -36,7 +36,7 @@ class SpyManufacturersPresenterDelegate:
         }
     }
 
-    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Manufacturer) {
+    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Entity) {
         numberOfManufacturerSelectedCalls += 1
     }
 

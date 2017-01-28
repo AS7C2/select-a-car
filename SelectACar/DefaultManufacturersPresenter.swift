@@ -10,9 +10,9 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
     weak var viewDelegate: ManufacturersPresenterViewDelegate?
     weak var coordinatorDelegate: ManufacturersPresenterCoordinatorDelegate?
     private let manufacturersInteractor: ManufacturersInteractor
-    private let selectCarInteractor: SelectCarInteractor
+    private let entitySelectionStrategy: EntitySelectionStrategy
     private var nextPage: Page
-    private var manufacturers: [Manufacturer] = []
+    private var manufacturers: [Entity] = []
     private var isLoading = false
 
     var numberOfManufacturers: Int {
@@ -21,9 +21,9 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
         }
     }
 
-    init(manufacturersInteractor: ManufacturersInteractor, selectCarInteractor: SelectCarInteractor) {
+    init(manufacturersInteractor: ManufacturersInteractor, entitySelectionStrategy: EntitySelectionStrategy) {
         self.manufacturersInteractor = manufacturersInteractor
-        self.selectCarInteractor = selectCarInteractor
+        self.entitySelectionStrategy = entitySelectionStrategy
         nextPage = Page(number: 0, size: 15)
     }
 
@@ -75,12 +75,12 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
         }
     }
 
-    func manufacturer(atIndex index: Int) -> Manufacturer {
+    func manufacturer(atIndex index: Int) -> Entity {
         return manufacturers[index]
     }
 
-    func select(manufacturer: Manufacturer) {
-        selectCarInteractor.select(manufacturer: manufacturer)
+    func select(manufacturer: Entity) {
+        entitySelectionStrategy.select(entity: manufacturer)
     }
 }
 

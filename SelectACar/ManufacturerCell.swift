@@ -11,16 +11,16 @@ import UIKit
 class ManufacturerCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
 
-    var manufacturer: Manufacturer? {
+    var entity: Entity? {
         didSet {
-            nameLabel.text = manufacturer?.name
+            nameLabel.text = entity?.name
         }
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        self.manufacturer = nil
+        self.entity = nil
         self.backgroundColor = UIColor.white
     }
 }

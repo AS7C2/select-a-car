@@ -17,7 +17,7 @@ protocol ManufacturersPresenterViewDelegate: class {
 }
 
 protocol ManufacturersPresenterCoordinatorDelegate: class {
-    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Manufacturer)
+    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Entity)
 }
 
 protocol ManufacturersPresenter {
@@ -26,11 +26,11 @@ protocol ManufacturersPresenter {
 
     var numberOfManufacturers: Int { get }
 
-    func manufacturer(atIndex index: Int) -> Manufacturer
+    func manufacturer(atIndex index: Int) -> Entity
 
     func refresh()
 
     func loadMore()
 
-    func select(manufacturer: Manufacturer)
+    func select(manufacturer: Entity)
 }

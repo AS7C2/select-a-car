@@ -33,7 +33,7 @@ extension ManufacturersViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Manufacturer", for: indexPath)
                 as! ManufacturerCell
         let manufacturer = presenter.manufacturer(atIndex: indexPath.row)
-        cell.manufacturer = manufacturer
+        cell.entity = manufacturer
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.cyan
         }
@@ -52,7 +52,7 @@ extension ManufacturersViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ManufacturerCell
-        presenter.select(manufacturer: cell.manufacturer!)
+        presenter.select(manufacturer: cell.entity!)
     }
 }
 
