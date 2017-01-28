@@ -22,7 +22,7 @@ class ManufacturersCoordinator {
                 as! ManufacturersViewController
         let selectCarInteractor = SelectCarInteractor()
         let presenter = DefaultManufacturersPresenter(
-                manufacturersInteractor: WebManufacturersInteractor(),
+                manufacturersInteractor: WebManufacturersInteractor(configuration: DefaultWebConfiguration()),
                 selectCarInteractor: selectCarInteractor)
         selectCarInteractor.selectCarManufacturerDelegate = presenter
         viewController.presenter = presenter

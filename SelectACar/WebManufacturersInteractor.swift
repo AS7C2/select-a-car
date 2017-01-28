@@ -9,8 +9,16 @@
 import Foundation
 
 class WebManufacturersInteractor: ManufacturersInteractor {
+    let configuration: WebConfiguration
+
+    init(configuration: WebConfiguration) {
+        self.configuration = configuration
+    }
+
     func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
-        let url = URL(string:"")!
+        let url = URL(
+                string:"?page=\(page.number)&pageSize=\(page.size)&wa_key=\(configuration.clientSecret)",
+                relativeTo:configuration.baseURL.appendingPathComponent("v1/car-types/manufacturer"))!
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 DispatchQueue.main.async {
@@ -43,5 +51,4 @@ class WebManufacturersInteractor: ManufacturersInteractor {
         }.resume()
     }
 }
-
 
