@@ -1,5 +1,5 @@
 //
-//  SpyManufacturersPresenterDelegate.swift
+//  SpyEntitiesPresenterDelegate.swift
 //  SelectACar
 //
 //  Created by Andrei Sherstniuk on 1/26/17.
@@ -8,7 +8,7 @@
 
 @testable import SelectACar
 
-class SpyManufacturersPresenterDelegate: EntitiesPresenterViewDelegate {
+class SpyEntitiesPresenterDelegate: EntitiesPresenterViewDelegate {
     var refreshCompletionHandler: (() -> Void)?
     var errorCompletionHandler: (() -> Void)?
     var loadMoreCompletionHandler: (() -> Void)?

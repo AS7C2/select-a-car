@@ -1,5 +1,5 @@
 //
-//  SpyManufacturersInteractor.swift
+//  SpyEntitiesInteractor.swift
 //  SelectACar
 //
 //  Created by Andrei Sherstniuk on 1/26/17.
@@ -9,11 +9,11 @@
 import Foundation
 @testable import SelectACar
 
-enum SpyManufacturersInteractorError: Error {
+enum SpyEntitiesInteractorError: Error {
     case Generic
 }
 
-class SpyManufacturersInteractor: EntitiesInteractor {
+class SpyEntitiesInteractor: EntitiesInteractor {
     var lastRequestedPage: Page?
     var results: [(success: Bool, count: Int?)]
     var resultIndex = 0
@@ -32,13 +32,13 @@ class SpyManufacturersInteractor: EntitiesInteractor {
         DispatchQueue.main.asyncAfter(deadline: .now() + executionTime) {
             self.lastRequestedPage = page
             if self.results[self.resultIndex].success {
-                var manufacturers: [Manufacturer] = []
+                var entities: [Entity] = []
                 for _ in 0..<self.results[self.resultIndex].count! {
-                    manufacturers.append(StubManufacturer())
+                    entities.append(StubManufacturer())
                 }
-                completionHandler(.Success(manufacturers))
+                completionHandler(.Success(entities))
             } else {
-                completionHandler(.Failure(SpyManufacturersInteractorError.Generic))
+                completionHandler(.Failure(SpyEntitiesInteractorError.Generic))
             }
             self.resultIndex += 1
         }

@@ -11,7 +11,7 @@ import XCTest
 
 class EntitiesPresenterTests: XCTestCase {
     func testTitle() {
-        let interactor = SpyManufacturersInteractor(results: [])
+        let interactor = SpyEntitiesInteractor(results: [])
         let presenter = DefaultEntitiesPresenter(
                 title: "Title",
                 entitiesInteractor: interactor,
@@ -20,12 +20,12 @@ class EntitiesPresenterTests: XCTestCase {
     }
 
     func testRefreshSuccess_resetsNextPage() {
-        let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (true, 15)])
+        let interactor = SpyEntitiesInteractor(results: [(true, 15), (true, 15), (true, 15)])
         let presenter = DefaultEntitiesPresenter(
                 title: "Title",
                 entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
-        let viewDelegate = SpyManufacturersPresenterDelegate()
+        let viewDelegate = SpyEntitiesPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
@@ -48,12 +48,12 @@ class EntitiesPresenterTests: XCTestCase {
     }
 
     func testLoadSuccess_incrementsNextPage() {
-        let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (true, 15)])
+        let interactor = SpyEntitiesInteractor(results: [(true, 15), (true, 15), (true, 15)])
         let presenter = DefaultEntitiesPresenter(
                 title: "Title",
                 entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
-        let viewDelegate = SpyManufacturersPresenterDelegate()
+        let viewDelegate = SpyEntitiesPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
@@ -76,12 +76,12 @@ class EntitiesPresenterTests: XCTestCase {
     }
 
     func testRefreshFail_doesNotResetNextPage() {
-        let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (false, nil), (true, 15)])
+        let interactor = SpyEntitiesInteractor(results: [(true, 15), (true, 15), (false, nil), (true, 15)])
         let presenter = DefaultEntitiesPresenter(
                 title: "Title",
                 entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
-        let viewDelegate = SpyManufacturersPresenterDelegate()
+        let viewDelegate = SpyEntitiesPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
@@ -109,12 +109,12 @@ class EntitiesPresenterTests: XCTestCase {
     }
 
     func testLoadFail_doesNotIncrementNextPage() {
-        let interactor = SpyManufacturersInteractor(results: [(true, 15), (false, nil), (false, nil)])
+        let interactor = SpyEntitiesInteractor(results: [(true, 15), (false, nil), (false, nil)])
         let presenter = DefaultEntitiesPresenter(
                 title: "Title",
                 entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
-        let viewDelegate = SpyManufacturersPresenterDelegate()
+        let viewDelegate = SpyEntitiesPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
@@ -137,12 +137,12 @@ class EntitiesPresenterTests: XCTestCase {
     }
 
     func testRefreshSuccess_ContainsData() {
-        let interactor = SpyManufacturersInteractor(results: [(true, 15), (false, nil), (false, nil)])
+        let interactor = SpyEntitiesInteractor(results: [(true, 15), (false, nil), (false, nil)])
         let presenter = DefaultEntitiesPresenter(
                 title: "Title",
                 entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
-        let viewDelegate = SpyManufacturersPresenterDelegate()
+        let viewDelegate = SpyEntitiesPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = {
@@ -158,12 +158,12 @@ class EntitiesPresenterTests: XCTestCase {
     }
 
     func testLoadMore_NoData_ShouldNotIncrementNextPage() {
-        let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 0), (true, 0)])
+        let interactor = SpyEntitiesInteractor(results: [(true, 15), (true, 0), (true, 0)])
         let presenter = DefaultEntitiesPresenter(
                 title: "Title",
                 entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
-        let viewDelegate = SpyManufacturersPresenterDelegate()
+        let viewDelegate = SpyEntitiesPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
@@ -186,16 +186,16 @@ class EntitiesPresenterTests: XCTestCase {
     }
 
     func testSelectedManufacturer_PropagatesToSelectCarInteractor() {
-        let manufacturersInteractor = SpyManufacturersInteractor(results: [(true, 15)])
+        let entitiesInteractor = SpyEntitiesInteractor(results: [(true, 15)])
         let selectCarInteractor = SelectCarInteractor()
         let selectCarDelegate = SpySelectCarInteractorDelegate()
         selectCarInteractor.selectCarManufacturerDelegate = selectCarDelegate
         selectCarInteractor.selectCarDelegate = selectCarDelegate
         let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                entitiesInteractor: manufacturersInteractor,
+                entitiesInteractor: entitiesInteractor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
-        let viewDelegate = SpyManufacturersPresenterDelegate()
+        let viewDelegate = SpyEntitiesPresenterDelegate()
         presenter.viewDelegate = viewDelegate
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = {
@@ -209,13 +209,13 @@ class EntitiesPresenterTests: XCTestCase {
     }
 
     func testRefreshInProgress_RejectsLoadMoreRequest() {
-        let manufacturersInteractor = SpyManufacturersInteractor(results: [(true, 15), (true, 15)], executionTime: 0.5)
+        let entitiesInteractor = SpyEntitiesInteractor(results: [(true, 15), (true, 15)], executionTime: 0.5)
         let selectCarInteractor = SelectCarInteractor()
         let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                entitiesInteractor: manufacturersInteractor,
+                entitiesInteractor: entitiesInteractor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
-        let delegate = SpyManufacturersPresenterDelegate()
+        let delegate = SpyEntitiesPresenterDelegate()
         presenter.viewDelegate = delegate
         let cancelExpectation = self.expectation(description: "Cancel Expectation")
         let refreshExpectation = self.expectation(description: "Refresh Expectation")
