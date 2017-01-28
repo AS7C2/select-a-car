@@ -12,7 +12,7 @@
         <!--Manufacturers View Controller-->
         <scene sceneID="VMd-6A-zE7">
             <objects>
-                <tableViewController storyboardIdentifier="EntitiesViewController" id="1SY-8Y-kzg" customClass="ManufacturersViewController" customModule="SelectACar" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EntitiesViewController" id="1SY-8Y-kzg" customClass="EntitiesViewController" customModule="SelectACar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" id="6Km-ZH-05G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

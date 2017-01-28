@@ -41,7 +41,7 @@
 		75A76F4C1E3A052000465B4E /* SpyManufacturersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */; };
 		75A76F4E1E3A05EB00465B4E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4D1E3A05EB00465B4E /* Page.swift */; };
 		75A76F501E3A1B2E00465B4E /* SpyManufacturersPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterDelegate.swift */; };
-		75A76F521E3A34A900465B4E /* ManufacturersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */; };
+		75A76F521E3A34A900465B4E /* EntitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F511E3A34A900465B4E /* EntitiesViewController.swift */; };
 		75A76F541E3A37F100465B4E /* ManufacturersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */; };
 		75A76F581E3A3DEE00465B4E /* DefaultManufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F571E3A3DEE00465B4E /* DefaultManufacturer.swift */; };
 		75A76F5A1E3A55CB00465B4E /* EntityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A76F591E3A55CB00465B4E /* EntityCell.swift */; };
@@ -96,7 +96,7 @@
 		75A76F4B1E3A052000465B4E /* SpyManufacturersInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyManufacturersInteractor.swift; sourceTree = "<group>"; };
 		75A76F4D1E3A05EB00465B4E /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		75A76F4F1E3A1B2E00465B4E /* SpyManufacturersPresenterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyManufacturersPresenterDelegate.swift; sourceTree = "<group>"; };
-		75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersViewController.swift; sourceTree = "<group>"; };
+		75A76F511E3A34A900465B4E /* EntitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitiesViewController.swift; sourceTree = "<group>"; };
 		75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersCoordinator.swift; sourceTree = "<group>"; };
 		75A76F571E3A3DEE00465B4E /* DefaultManufacturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultManufacturer.swift; sourceTree = "<group>"; };
 		75A76F591E3A55CB00465B4E /* EntityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityCell.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 				75A76F471E3A00A500465B4E /* DefaultEntitiesPresenter.swift */,
 				75A76F491E3A04FB00465B4E /* EntitiesInteractor.swift */,
 				75A76F4D1E3A05EB00465B4E /* Page.swift */,
-				75A76F511E3A34A900465B4E /* ManufacturersViewController.swift */,
+				75A76F511E3A34A900465B4E /* EntitiesViewController.swift */,
 				75A76F531E3A37F100465B4E /* ManufacturersCoordinator.swift */,
 				75A76F571E3A3DEE00465B4E /* DefaultManufacturer.swift */,
 				75A76F591E3A55CB00465B4E /* EntityCell.swift */,
@@ -314,7 +314,7 @@
 				75A76F581E3A3DEE00465B4E /* DefaultManufacturer.swift in Sources */,
 				750D44E61E3CB72F00EA9DE0 /* EntityFactory.swift in Sources */,
 				75A76F5A1E3A55CB00465B4E /* EntityCell.swift in Sources */,
-				75A76F521E3A34A900465B4E /* ManufacturersViewController.swift in Sources */,
+				75A76F521E3A34A900465B4E /* EntitiesViewController.swift in Sources */,
 				75A76F461E3A005A00465B4E /* EntitiesPresenter.swift in Sources */,
 				750D44F01E3CC2A400EA9DE0 /* PagedURLBuilder.swift in Sources */,
 				750D44EA1E3CB78C00EA9DE0 /* ModelFactory.swift in Sources */,

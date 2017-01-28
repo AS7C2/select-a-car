@@ -1,5 +1,5 @@
 //
-//  ManufacturersViewController.swift
+//  EntitiesViewController.swift
 //  SelectACar
 //
 //  Created by Andrei Sherstniuk on 1/26/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ManufacturersViewController: UITableViewController {
+class EntitiesViewController: UITableViewController {
     var presenter: EntitiesPresenter!
 
     override func viewDidLoad() {
@@ -18,7 +18,7 @@ class ManufacturersViewController: UITableViewController {
         
         presenter.refresh()
 
-        refreshControl?.addTarget(self, action: #selector(ManufacturersViewController.refresh), for: .valueChanged)
+        refreshControl?.addTarget(self, action: #selector(EntitiesViewController.refresh), for: .valueChanged)
     }
 
     func refresh() {
@@ -26,7 +26,7 @@ class ManufacturersViewController: UITableViewController {
     }
 }
 
-extension ManufacturersViewController {
+extension EntitiesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfEntities
     }
@@ -34,8 +34,8 @@ extension ManufacturersViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntityCell", for: indexPath)
                 as! EntityCell
-        let manufacturer = presenter.entity(atIndex: indexPath.row)
-        cell.entity = manufacturer
+        let entity = presenter.entity(atIndex: indexPath.row)
+        cell.entity = entity
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.cyan
         }
@@ -58,17 +58,17 @@ extension ManufacturersViewController {
     }
 }
 
-extension ManufacturersViewController: EntitiesPresenterViewDelegate {
+extension EntitiesViewController: EntitiesPresenterViewDelegate {
     func entitiesPresenterDidRefresh(_ presenter: EntitiesPresenter) {
         endRefreshing()
         tableView.reloadData()
     }
 
     func entitiesPresenter(_ presenter: EntitiesPresenter, didLoadMoreEntities count: Int) {
-            let numberOfManufacturers = presenter.numberOfEntities
-            let previousNumberOfManufacturers = numberOfManufacturers - count
+            let numberOfEntities = presenter.numberOfEntities
+            let previousNumberOfEntities = numberOfEntities - count
             var indexPaths: [IndexPath] = []
-            for index in previousNumberOfManufacturers..<numberOfManufacturers {
+            for index in previousNumberOfEntities..<numberOfEntities {
                 indexPaths.append(IndexPath(row: index, section: 0))
             }
             self.tableView.beginUpdates()
