@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Manufacturers View Controller-->
+        <!--Entities View Controller-->
         <scene sceneID="VMd-6A-zE7">
             <objects>
                 <tableViewController storyboardIdentifier="EntitiesViewController" id="1SY-8Y-kzg" customClass="EntitiesViewController" customModule="SelectACar" customModuleProvider="target" sceneMemberID="viewController">

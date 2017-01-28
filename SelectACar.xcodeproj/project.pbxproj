@@ -141,13 +141,13 @@
 			children = (
 				75A76F0D1E391FB700465B4E /* AppDelegate.swift */,
 				75A76F141E391FB700465B4E /* Assets.xcassets */,
-				75A76F191E391FB700465B4E /* Info.plist */,
+				ABC35DC9DECDD85244C639FB /* Coordinators */,
 				ABC351E6D3E17FDD705AAA42 /* Entities */,
+				75A76F191E391FB700465B4E /* Info.plist */,
 				ABC35D7C560AF74454D23717 /* Interactors */,
+				ABC35F32AD153DABC0E201F7 /* Networking */,
 				ABC352D5093BD3FC41DDBC60 /* Presenters */,
 				ABC35AF2964A7C5B47B2F904 /* Views */,
-				ABC35DC9DECDD85244C639FB /* Coordinators */,
-				ABC35F32AD153DABC0E201F7 /* Networking */,
 			);
 			path = SelectACar;
 			sourceTree = "<group>";
@@ -155,9 +155,9 @@
 		75A76F211E391FB700465B4E /* SelectACarTests */ = {
 			isa = PBXGroup;
 			children = (
+				75A76F431E39FF3E00465B4E /* EntitiesPresenterTests.swift */,
 				75A76F241E391FB700465B4E /* Info.plist */,
 				75A76F351E393F4700465B4E /* SelectCarInteractorTests.swift */,
-				75A76F431E39FF3E00465B4E /* EntitiesPresenterTests.swift */,
 				ABC355058E6092D0F80FB700 /* TestDoubles */,
 			);
 			path = SelectACarTests;
@@ -166,14 +166,14 @@
 		ABC351E6D3E17FDD705AAA42 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				ABC35F5127714B15C3C3C314 /* Entity.swift */,
-				ABC35ACDFED4C25A8524158E /* Model.swift */,
-				ABC35062C8DCE7355DC53059 /* Manufacturer.swift */,
 				ABC35D557514680FE6E07B8B /* DefaultManufacturer.swift */,
 				ABC35FBE49418D0EE15142EA /* DefaultModel.swift */,
+				ABC35F5127714B15C3C3C314 /* Entity.swift */,
 				ABC35EAEBAC4B26EE79E18D8 /* EntityFactory.swift */,
-				ABC35E1C7311DCB7D7DDF7ED /* ModelFactory.swift */,
+				ABC35062C8DCE7355DC53059 /* Manufacturer.swift */,
 				ABC358B58C5B0D567426D23F /* ManufacturerFactory.swift */,
+				ABC35ACDFED4C25A8524158E /* Model.swift */,
+				ABC35E1C7311DCB7D7DDF7ED /* ModelFactory.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -183,9 +183,9 @@
 			children = (
 				ABC35DFAD33A69736791E645 /* DefaultEntitiesPresenter.swift */,
 				ABC3553D12281A2A3D6B5935 /* EntitiesPresenter.swift */,
-				ABC35164EFC0CAA25DF6A6AE /* ModelSelectionStrategy.swift */,
 				ABC35583BD2B3E266667AC05 /* EntitySelectionStrategy.swift */,
 				ABC35E375D45C0A5C1BFAAFC /* ManufacturerSelectionStrategy.swift */,
+				ABC35164EFC0CAA25DF6A6AE /* ModelSelectionStrategy.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -193,11 +193,11 @@
 		ABC355058E6092D0F80FB700 /* TestDoubles */ = {
 			isa = PBXGroup;
 			children = (
-				ABC35F55D569B6EFDCCC22C6 /* StubModel.swift */,
-				ABC3525D1352C5BF47BB02E8 /* StubManufacturer.swift */,
-				ABC35A7F3901EAAD5801ACBB /* SpySelectCarInteractorDelegate.swift */,
 				ABC350A80C0EFEB163800ED4 /* SpyEntitiesInteractor.swift */,
 				ABC35369167CC5EDE124AA50 /* SpyEntitiesPresenterDelegate.swift */,
+				ABC35A7F3901EAAD5801ACBB /* SpySelectCarInteractorDelegate.swift */,
+				ABC3525D1352C5BF47BB02E8 /* StubManufacturer.swift */,
+				ABC35F55D569B6EFDCCC22C6 /* StubModel.swift */,
 			);
 			path = TestDoubles;
 			sourceTree = "<group>";
@@ -205,10 +205,10 @@
 		ABC35AF2964A7C5B47B2F904 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ABC350E5AC4DE4DE61D1FE0C /* EntitiesViewController.swift */,
+				ABC359D28CDF321A2452F9BD /* EntityCell.swift */,
 				ABC354D14794B534576727E9 /* LaunchScreen.storyboard */,
 				ABC351DCBDD2EF291C065B39 /* Main.storyboard */,
-				ABC359D28CDF321A2452F9BD /* EntityCell.swift */,
-				ABC350E5AC4DE4DE61D1FE0C /* EntitiesViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,8 +216,8 @@
 		ABC35D7C560AF74454D23717 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				ABC355F24607E65F27F95952 /* SelectCarInteractor.swift */,
 				ABC350E0C690961B013AF2F5 /* EntitiesInteractor.swift */,
+				ABC355F24607E65F27F95952 /* SelectCarInteractor.swift */,
 				ABC3524E99BF30A1F13474DC /* WebEntitiesInteractor.swift */,
 			);
 			path = Interactors;
@@ -235,12 +235,12 @@
 		ABC35F32AD153DABC0E201F7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				ABC355B993080DCD7786623B /* ModelsPagedURLBuilder.swift */,
-				ABC358776ED4FDE694924DC7 /* ManufacturersPagedURLBuilder.swift */,
-				ABC357281DF2887C5FFFCDB2 /* Page.swift */,
 				ABC35538E8CFD322C22FAF6A /* DefaultWebConfiguration.swift */,
-				ABC35EFD0AA593A1595A99F3 /* WebConfiguration.swift */,
+				ABC358776ED4FDE694924DC7 /* ManufacturersPagedURLBuilder.swift */,
+				ABC355B993080DCD7786623B /* ModelsPagedURLBuilder.swift */,
+				ABC357281DF2887C5FFFCDB2 /* Page.swift */,
 				ABC3562089D25A9D0DBD88E0 /* PagedURLBuilder.swift */,
+				ABC35EFD0AA593A1595A99F3 /* WebConfiguration.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
