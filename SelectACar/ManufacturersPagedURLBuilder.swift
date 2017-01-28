@@ -1,5 +1,5 @@
 //
-//  DefaultPagedURLBuilder.swift
+//  ManufacturersPagedURLBuilder.swift
 //  SelectACar
 //
 //  Created by Andrei Sherstniuk on 1/28/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DefaultPagedURLBuilder: PagedURLBuilder {
+class ManufacturersPagedURLBuilder: PagedURLBuilder {
     let configuration: WebConfiguration
     let path: String
 

@@ -35,6 +35,7 @@ class WebManufacturersInteractor: ManufacturersInteractor {
                             }
                         }
                     }
+                    manufacturers.sort(by: { $0.id < $1.id})
                     DispatchQueue.main.async {
                         completionHandler(.Success(manufacturers))
                     }

@@ -26,6 +26,10 @@ class SelectCarInteractor {
     private var manufacturer: Manufacturer?
     private var model: Model?
 
+    func selectedManufacturer() -> Manufacturer? {
+        return manufacturer
+    }
+
     func select(manufacturer: Manufacturer) {
         self.manufacturer = manufacturer
 

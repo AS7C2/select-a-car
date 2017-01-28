@@ -21,9 +21,10 @@ class ModelsCoordinator {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "Manufacturers")
                 as! ManufacturersViewController
-        let urlBuilder = DefaultPagedURLBuilder(
+        let urlBuilder = ModelsPagedURLBuilder(
                 configuration: DefaultWebConfiguration(),
-                path: "/v1/car-types/manufacturer")
+                path: "/v1/car-types/main-types",
+                manufacturer: self.selectCarInteractor.selectedManufacturer()!)
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: WebManufacturersInteractor(
                         urlBuilder: urlBuilder,

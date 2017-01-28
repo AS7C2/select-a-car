@@ -17,6 +17,8 @@ class SelectCarInteractorTests: XCTestCase {
         interactor.selectCarDelegate = delegate
         interactor.selectCarManufacturerDelegate = delegate
         interactor.select(manufacturer: manufacturer)
+        XCTAssertEqual(manufacturer.id, interactor.selectedManufacturer()!.id)
+        XCTAssertEqual(manufacturer.name, interactor.selectedManufacturer()!.name)
         XCTAssertEqual(1, delegate.numberOfManufacturerSelectedCalls)
         XCTAssertEqual(0, delegate.numberOfCarSelectedCalls)
     }
@@ -28,6 +30,7 @@ class SelectCarInteractorTests: XCTestCase {
         interactor.selectCarDelegate = delegate
         interactor.selectCarManufacturerDelegate = delegate
         interactor.select(model: model);
+        XCTAssertNil(interactor.selectedManufacturer())
         XCTAssertEqual(0, delegate.numberOfManufacturerSelectedCalls)
         XCTAssertEqual(0, delegate.numberOfCarSelectedCalls)
     }
