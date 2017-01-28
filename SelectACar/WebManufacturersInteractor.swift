@@ -10,9 +10,11 @@ import Foundation
 
 class WebManufacturersInteractor: ManufacturersInteractor {
     let configuration: WebConfiguration
+    let entityFactory: EntityFactory
 
-    init(configuration: WebConfiguration) {
+    init(configuration: WebConfiguration, entityFactory: EntityFactory) {
         self.configuration = configuration
+        self.entityFactory = entityFactory
     }
 
     func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
@@ -26,12 +28,12 @@ class WebManufacturersInteractor: ManufacturersInteractor {
                 }
             } else if let data = data {
                 do {
-                    var manufacturers: [Manufacturer] = []
+                    var manufacturers: [Entity] = []
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     if let json = json as? [String: AnyObject] {
                         if let json = json["wkda"] as? [String: String] {
                             for (id, name) in json {
-                                manufacturers.append(DefaultManufacturer(id: id, name: name))
+                                manufacturers.append(self.entityFactory.create(id: id, name: name))
                             }
                         }
                     }
