@@ -9,7 +9,7 @@
 class DefaultEntitiesPresenter: EntitiesPresenter {
     let title: String
     weak var viewDelegate: EntitiesPresenterViewDelegate?
-    private let entitiesInteractor: ManufacturersInteractor
+    private let entitiesInteractor: EntitiesInteractor
     private let entitySelectionStrategy: EntitySelectionStrategy
     private var nextPage: Page
     private var entities: [Entity] = []
@@ -22,7 +22,7 @@ class DefaultEntitiesPresenter: EntitiesPresenter {
     }
 
     init(title: String,
-         entitiesInteractor: ManufacturersInteractor,
+         entitiesInteractor: EntitiesInteractor,
          entitySelectionStrategy: EntitySelectionStrategy)
     {
         self.title = title

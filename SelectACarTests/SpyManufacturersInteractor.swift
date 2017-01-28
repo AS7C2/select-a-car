@@ -13,7 +13,7 @@ enum SpyManufacturersInteractorError: Error {
     case Generic
 }
 
-class SpyManufacturersInteractor: ManufacturersInteractor {
+class SpyManufacturersInteractor: EntitiesInteractor {
     var lastRequestedPage: Page?
     var results: [(success: Bool, count: Int?)]
     var resultIndex = 0
@@ -28,7 +28,7 @@ class SpyManufacturersInteractor: ManufacturersInteractor {
         self.init(results: results, executionTime: 0)
     }
 
-    func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
+    func get(page: Page, completionHandler: @escaping (EntitiesInteractorResult) -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + executionTime) {
             self.lastRequestedPage = page
             if self.results[self.resultIndex].success {

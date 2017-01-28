@@ -1,5 +1,5 @@
 //
-//  WebManufacturersInteractor.swift
+//  WebEntitiesInteractor.swift
 //  SelectACar
 //
 //  Created by Andrei Sherstniuk on 1/27/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WebManufacturersInteractor: ManufacturersInteractor {
+class WebEntitiesInteractor: EntitiesInteractor {
     let urlBuilder: PagedURLBuilder
     let entityFactory: EntityFactory
 
@@ -17,7 +17,7 @@ class WebManufacturersInteractor: ManufacturersInteractor {
         self.entityFactory = entityFactory
     }
 
-    func get(page: Page, completionHandler: @escaping (ManufacturersInteractorResult) -> Void) {
+    func get(page: Page, completionHandler: @escaping (EntitiesInteractorResult) -> Void) {
         let url = urlBuilder.build(page: page)
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
@@ -26,18 +26,18 @@ class WebManufacturersInteractor: ManufacturersInteractor {
                 }
             } else if let data = data {
                 do {
-                    var manufacturers: [Entity] = []
+                    var entities: [Entity] = []
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     if let json = json as? [String: AnyObject] {
                         if let json = json["wkda"] as? [String: String] {
                             for (id, name) in json {
-                                manufacturers.append(self.entityFactory.create(id: id, name: name))
+                                entities.append(self.entityFactory.create(id: id, name: name))
                             }
                         }
                     }
-                    manufacturers.sort(by: { $0.id < $1.id})
+                    entities.sort(by: { $0.id < $1.id})
                     DispatchQueue.main.async {
-                        completionHandler(.Success(manufacturers))
+                        completionHandler(.Success(entities))
                     }
                 } catch let error {
                     DispatchQueue.main.async {

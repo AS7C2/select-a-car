@@ -26,7 +26,7 @@ class ModelsCoordinator {
                 manufacturer: self.selectCarInteractor.selectedManufacturer()!)
         let presenter = DefaultEntitiesPresenter(
                 title: "Models",
-                entitiesInteractor: WebManufacturersInteractor(
+                entitiesInteractor: WebEntitiesInteractor(
                         urlBuilder: urlBuilder,
                         entityFactory: ModelFactory()),
                 entitySelectionStrategy: ModelSelectionStrategy(interactor: selectCarInteractor))
