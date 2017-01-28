@@ -11,6 +11,8 @@ import UIKit
 class ManufacturersCoordinator {
     let window: UIWindow
     var navigationController: UINavigationController!
+    var selectCarInteractor: SelectCarInteractor!
+    var modelsCoordinator: ModelsCoordinator!
 
     init(window: UIWindow) {
         self.window = window
@@ -20,24 +22,25 @@ class ManufacturersCoordinator {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "Manufacturers")
                 as! ManufacturersViewController
-        let selectCarInteractor = SelectCarInteractor()
+        self.selectCarInteractor = SelectCarInteractor()
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: WebManufacturersInteractor(
                         configuration: DefaultWebConfiguration(),
                         entityFactory: ManufactorerFactory()),
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
-        selectCarInteractor.selectCarManufacturerDelegate = presenter
+        selectCarInteractor.selectCarManufacturerDelegate = self
         viewController.presenter = presenter
         presenter.viewDelegate = viewController
-        presenter.coordinatorDelegate = self
         self.navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
     }
 }
 
-extension ManufacturersCoordinator: ManufacturersPresenterCoordinatorDelegate {
-    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Entity) {
-        let modelsCoordinator = ModelsCoordinator(navigationController: navigationController)
+extension ManufacturersCoordinator: SelectCarManufacturerDelegate {
+    func selectCarInteractor(_ interactor: SelectCarInteractor, didSelectManufacturer manufacturer: Manufacturer) {
+        modelsCoordinator = ModelsCoordinator(
+                navigationController: navigationController,
+                selectCarInteractor: selectCarInteractor)
         modelsCoordinator.start()
     }
 }

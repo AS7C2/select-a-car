@@ -10,31 +10,38 @@ import UIKit
 
 class ModelsCoordinator {
     let navigationController: UINavigationController
+    let selectCarInteractor: SelectCarInteractor
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, selectCarInteractor: SelectCarInteractor) {
         self.navigationController = navigationController
+        self.selectCarInteractor = selectCarInteractor
     }
 
     func start() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "Manufacturers")
                 as! ManufacturersViewController
-        let selectCarInteractor = SelectCarInteractor()
         let presenter = DefaultManufacturersPresenter(
                 manufacturersInteractor: WebManufacturersInteractor(
                         configuration: DefaultWebConfiguration(),
                         entityFactory: ModelFactory()),
                 entitySelectionStrategy: ModelSelectionStrategy(interactor: selectCarInteractor))
-        selectCarInteractor.selectCarManufacturerDelegate = presenter
+        selectCarInteractor.selectCarDelegate = self
         viewController.presenter = presenter
         presenter.viewDelegate = viewController
-        presenter.coordinatorDelegate = self
         self.navigationController.pushViewController(viewController, animated: true)
     }
 }
 
-extension ModelsCoordinator: ManufacturersPresenterCoordinatorDelegate {
-    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didSelectManufacturer manufacturer: Entity) {
-
+extension ModelsCoordinator: SelectCarDelegate {
+    func selectCarInteractor(
+            _ interactor: SelectCarInteractor,
+            didSelectManufacturer manufacturer: Manufacturer,
+            model: Model)
+    {
+        let message = "\(manufacturer.name), \(model.name)"
+        let alert = UIAlertController(title: "Your Selection", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        navigationController.present(alert, animated: true)
     }
 }
