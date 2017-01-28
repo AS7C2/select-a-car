@@ -30,14 +30,14 @@ class ManufacturersPersenterTests: XCTestCase {
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
             XCTAssertEqual(0, interactor.lastRequestedPage!.number)
-            XCTAssertEqual(15, presenter.numberOfManufacturers)
+            XCTAssertEqual(15, presenter.numberOfEntities)
             viewDelegate.loadMoreCompletionHandler = {
                 XCTAssertEqual(1, interactor.lastRequestedPage!.number)
-                XCTAssertEqual(30, presenter.numberOfManufacturers)
+                XCTAssertEqual(30, presenter.numberOfEntities)
                 viewDelegate.refreshCompletionHandler = {
                     expectation.fulfill()
                     XCTAssertEqual(0, interactor.lastRequestedPage!.number)
-                    XCTAssertEqual(15, presenter.numberOfManufacturers)
+                    XCTAssertEqual(15, presenter.numberOfEntities)
                 }
                 presenter.refresh()
             }
@@ -58,14 +58,14 @@ class ManufacturersPersenterTests: XCTestCase {
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
             XCTAssertEqual(0, interactor.lastRequestedPage!.number)
-            XCTAssertEqual(15, presenter.numberOfManufacturers)
+            XCTAssertEqual(15, presenter.numberOfEntities)
             viewDelegate.loadMoreCompletionHandler = {
                 XCTAssertEqual(1, interactor.lastRequestedPage!.number)
-                XCTAssertEqual(30, presenter.numberOfManufacturers)
+                XCTAssertEqual(30, presenter.numberOfEntities)
                 viewDelegate.loadMoreCompletionHandler = {
                     expectation.fulfill()
                     XCTAssertEqual(2, interactor.lastRequestedPage!.number)
-                    XCTAssertEqual(45, presenter.numberOfManufacturers)
+                    XCTAssertEqual(45, presenter.numberOfEntities)
                 }
                 presenter.loadMore()
             }
@@ -86,17 +86,17 @@ class ManufacturersPersenterTests: XCTestCase {
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
             XCTAssertEqual(0, interactor.lastRequestedPage!.number)
-            XCTAssertEqual(15, presenter.numberOfManufacturers)
+            XCTAssertEqual(15, presenter.numberOfEntities)
             viewDelegate.loadMoreCompletionHandler = {
                 XCTAssertEqual(1, interactor.lastRequestedPage!.number)
-                XCTAssertEqual(30, presenter.numberOfManufacturers)
+                XCTAssertEqual(30, presenter.numberOfEntities)
                 viewDelegate.errorCompletionHandler = {
                     XCTAssertEqual(0, interactor.lastRequestedPage!.number)
-                    XCTAssertEqual(30, presenter.numberOfManufacturers)
+                    XCTAssertEqual(30, presenter.numberOfEntities)
                     viewDelegate.loadMoreCompletionHandler = {
                         expectation.fulfill()
                         XCTAssertEqual(2, interactor.lastRequestedPage!.number)
-                        XCTAssertEqual(45, presenter.numberOfManufacturers)
+                        XCTAssertEqual(45, presenter.numberOfEntities)
                     }
                     presenter.loadMore()
                 }
@@ -119,14 +119,14 @@ class ManufacturersPersenterTests: XCTestCase {
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
             XCTAssertEqual(0, interactor.lastRequestedPage!.number)
-            XCTAssertEqual(15, presenter.numberOfManufacturers)
+            XCTAssertEqual(15, presenter.numberOfEntities)
             viewDelegate.errorCompletionHandler = {
                 XCTAssertEqual(1, interactor.lastRequestedPage!.number)
-                XCTAssertEqual(15, presenter.numberOfManufacturers)
+                XCTAssertEqual(15, presenter.numberOfEntities)
                 viewDelegate.errorCompletionHandler = {
                     expectation.fulfill()
                     XCTAssertEqual(1, interactor.lastRequestedPage!.number)
-                    XCTAssertEqual(15, presenter.numberOfManufacturers)
+                    XCTAssertEqual(15, presenter.numberOfEntities)
                 }
                 presenter.loadMore()
             }
@@ -147,10 +147,10 @@ class ManufacturersPersenterTests: XCTestCase {
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = {
             expectation.fulfill()
-            XCTAssertEqual(15, presenter.numberOfManufacturers)
-            for i in 0..<presenter.numberOfManufacturers {
-                XCTAssertEqual("107", presenter.manufacturer(atIndex: i).id)
-                XCTAssertEqual("Bentley", presenter.manufacturer(atIndex: i).name)
+            XCTAssertEqual(15, presenter.numberOfEntities)
+            for i in 0..<presenter.numberOfEntities {
+                XCTAssertEqual("107", presenter.entity(atIndex: i).id)
+                XCTAssertEqual("Bentley", presenter.entity(atIndex: i).name)
             }
         }
         presenter.refresh()
@@ -168,14 +168,14 @@ class ManufacturersPersenterTests: XCTestCase {
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = { [unowned viewDelegate] in
             XCTAssertEqual(0, interactor.lastRequestedPage!.number)
-            XCTAssertEqual(15, presenter.numberOfManufacturers)
+            XCTAssertEqual(15, presenter.numberOfEntities)
             viewDelegate.loadMoreCompletionHandler = {
                 XCTAssertEqual(1, interactor.lastRequestedPage!.number)
-                XCTAssertEqual(15, presenter.numberOfManufacturers)
+                XCTAssertEqual(15, presenter.numberOfEntities)
                 viewDelegate.loadMoreCompletionHandler = {
                     expectation.fulfill()
                     XCTAssertEqual(1, interactor.lastRequestedPage!.number)
-                    XCTAssertEqual(15, presenter.numberOfManufacturers)
+                    XCTAssertEqual(15, presenter.numberOfEntities)
                 }
                 presenter.loadMore()
             }
@@ -200,8 +200,8 @@ class ManufacturersPersenterTests: XCTestCase {
         let expectation = self.expectation(description: "Expectation")
         viewDelegate.refreshCompletionHandler = {
             expectation.fulfill()
-            let manufacturer = presenter.manufacturer(atIndex: 0)
-            presenter.select(manufacturer: manufacturer)
+            let manufacturer = presenter.entity(atIndex: 0)
+            presenter.select(entity: manufacturer)
             XCTAssertEqual(1,  selectCarDelegate.numberOfManufacturerSelectedCalls)
         }
         presenter.refresh()
@@ -224,14 +224,14 @@ class ManufacturersPersenterTests: XCTestCase {
         }
         delegate.refreshCompletionHandler = {
             refreshExpectation.fulfill()
-            XCTAssertEqual(15, presenter.numberOfManufacturers)
+            XCTAssertEqual(15, presenter.numberOfEntities)
         }
         presenter.refresh()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             presenter.loadMore()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            XCTAssertEqual(15, presenter.numberOfManufacturers)
+            XCTAssertEqual(15, presenter.numberOfEntities)
         }
         self.waitForExpectations(timeout: 2, handler: nil)
     }

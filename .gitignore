@@ -27,6 +27,9 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+## AppCode
+.idea
+
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace

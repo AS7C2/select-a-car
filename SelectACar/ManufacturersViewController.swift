@@ -9,7 +9,7 @@
 import UIKit
 
 class ManufacturersViewController: UITableViewController {
-    var presenter: ManufacturersPresenter!
+    var presenter: EntitiesPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +28,13 @@ class ManufacturersViewController: UITableViewController {
 
 extension ManufacturersViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfManufacturers
+        return presenter.numberOfEntities
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Manufacturer", for: indexPath)
                 as! ManufacturerCell
-        let manufacturer = presenter.manufacturer(atIndex: indexPath.row)
+        let manufacturer = presenter.entity(atIndex: indexPath.row)
         cell.entity = manufacturer
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.cyan
@@ -47,25 +47,25 @@ extension ManufacturersViewController {
             willDisplay cell: UITableViewCell,
             forRowAt indexPath: IndexPath)
     {
-        if (indexPath.row == presenter.numberOfManufacturers - 1) {
+        if (indexPath.row == presenter.numberOfEntities - 1) {
             presenter.loadMore()
         }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ManufacturerCell
-        presenter.select(manufacturer: cell.entity!)
+        presenter.select(entity: cell.entity!)
     }
 }
 
-extension ManufacturersViewController: ManufacturersPresenterViewDelegate {
-    func manufacturersPresenterDidRefresh(_ presenter: ManufacturersPresenter) {
+extension ManufacturersViewController: EntitiesPresenterViewDelegate {
+    func entitiesPresenterDidRefresh(_ presenter: EntitiesPresenter) {
         endRefreshing()
         tableView.reloadData()
     }
 
-    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didLoadMoreManufacturers count: Int) {
-            let numberOfManufacturers = presenter.numberOfManufacturers
+    func entitiesPresenter(_ presenter: EntitiesPresenter, didLoadMoreEntities count: Int) {
+            let numberOfManufacturers = presenter.numberOfEntities
             let previousNumberOfManufacturers = numberOfManufacturers - count
             var indexPaths: [IndexPath] = []
             for index in previousNumberOfManufacturers..<numberOfManufacturers {
@@ -76,7 +76,7 @@ extension ManufacturersViewController: ManufacturersPresenterViewDelegate {
             self.tableView.endUpdates()
     }
 
-    func manufacturersPresenter(_ presenter: ManufacturersPresenter, didFailWithError error: Error) {
+    func entitiesPresenter(_ presenter: EntitiesPresenter, didFailWithError error: Error) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -86,7 +86,7 @@ extension ManufacturersViewController: ManufacturersPresenterViewDelegate {
         }
     }
 
-    func manufacturersPresenterDidCancel(_ presenter: ManufacturersPresenter) {
+    func entitiesPresenterDidCancel(_ presenter: EntitiesPresenter) {
         endRefreshing()
     }
 

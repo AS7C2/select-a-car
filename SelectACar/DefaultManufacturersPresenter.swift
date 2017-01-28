@@ -6,16 +6,16 @@
 //  Copyright © 2017 Andrei Sherstniuk. All rights reserved.
 //
 
-class DefaultManufacturersPresenter: ManufacturersPresenter {
+class DefaultManufacturersPresenter: EntitiesPresenter {
     let title: String
-    weak var viewDelegate: ManufacturersPresenterViewDelegate?
+    weak var viewDelegate: EntitiesPresenterViewDelegate?
     private let manufacturersInteractor: ManufacturersInteractor
     private let entitySelectionStrategy: EntitySelectionStrategy
     private var nextPage: Page
     private var manufacturers: [Entity] = []
     private var isLoading = false
 
-    var numberOfManufacturers: Int {
+    var numberOfEntities: Int {
         get {
             return manufacturers.count
         }
@@ -41,11 +41,11 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
                     self.manufacturers = manufacturers
                     self.nextPage = newNextPage.next()
                     if let viewDelegate = self.viewDelegate {
-                        viewDelegate.manufacturersPresenterDidRefresh(self)
+                        viewDelegate.entitiesPresenterDidRefresh(self)
                     }
                 case .Failure(let error):
                     if let viewDelegate = self.viewDelegate {
-                        viewDelegate.manufacturersPresenter(self, didFailWithError: error)
+                        viewDelegate.entitiesPresenter(self, didFailWithError: error)
                     }
             }
         }
@@ -54,7 +54,7 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
     func loadMore() {
         if isLoading {
             if let viewDelegate = self.viewDelegate {
-                viewDelegate.manufacturersPresenterDidCancel(self)
+                viewDelegate.entitiesPresenterDidCancel(self)
             }
             return
         }
@@ -69,21 +69,21 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
                         self.nextPage = self.nextPage.next()
                     }
                     if let viewDelegate = self.viewDelegate {
-                        viewDelegate.manufacturersPresenter(self, didLoadMoreManufacturers: manufacturers.count)
+                        viewDelegate.entitiesPresenter(self, didLoadMoreEntities: manufacturers.count)
                     }
                 case .Failure(let error):
                     if let viewDelegate = self.viewDelegate {
-                        viewDelegate.manufacturersPresenter(self, didFailWithError: error)
+                        viewDelegate.entitiesPresenter(self, didFailWithError: error)
                     }
             }
         }
     }
 
-    func manufacturer(atIndex index: Int) -> Entity {
+    func entity(atIndex index: Int) -> Entity {
         return manufacturers[index]
     }
 
-    func select(manufacturer: Entity) {
-        entitySelectionStrategy.select(entity: manufacturer)
+    func select(entity: Entity) {
+        entitySelectionStrategy.select(entity: entity)
     }
 }
