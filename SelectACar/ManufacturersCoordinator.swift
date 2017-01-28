@@ -24,9 +24,9 @@ class ManufacturersCoordinator {
                 as! ManufacturersViewController
         self.selectCarInteractor = SelectCarInteractor()
         let urlBuilder = ManufacturersPagedURLBuilder(configuration: DefaultWebConfiguration())
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Manufacturers",
-                manufacturersInteractor: WebManufacturersInteractor(
+                entitiesInteractor: WebManufacturersInteractor(
                         urlBuilder: urlBuilder,
                         entityFactory: ManufacturerFactory()),
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))

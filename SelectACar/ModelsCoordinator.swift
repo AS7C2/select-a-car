@@ -24,9 +24,9 @@ class ModelsCoordinator {
         let urlBuilder = ModelsPagedURLBuilder(
                 configuration: DefaultWebConfiguration(),
                 manufacturer: self.selectCarInteractor.selectedManufacturer()!)
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Models",
-                manufacturersInteractor: WebManufacturersInteractor(
+                entitiesInteractor: WebManufacturersInteractor(
                         urlBuilder: urlBuilder,
                         entityFactory: ModelFactory()),
                 entitySelectionStrategy: ModelSelectionStrategy(interactor: selectCarInteractor))

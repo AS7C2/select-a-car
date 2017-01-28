@@ -1,5 +1,5 @@
 //
-//  ManufacturersPersenterTests.swift
+//  EntitiesPresenterTests.swift
 //  SelectACar
 //
 //  Created by Andrei Sherstniuk on 1/26/17.
@@ -9,21 +9,21 @@
 import XCTest
 @testable import SelectACar
 
-class ManufacturersPersenterTests: XCTestCase {
+class EntitiesPresenterTests: XCTestCase {
     func testTitle() {
         let interactor = SpyManufacturersInteractor(results: [])
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                manufacturersInteractor: interactor,
+                entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         XCTAssertEqual("Title", presenter.title)
     }
 
     func testRefreshSuccess_resetsNextPage() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (true, 15)])
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                manufacturersInteractor: interactor,
+                entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
@@ -49,9 +49,9 @@ class ManufacturersPersenterTests: XCTestCase {
 
     func testLoadSuccess_incrementsNextPage() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (true, 15)])
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                manufacturersInteractor: interactor,
+                entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
@@ -77,9 +77,9 @@ class ManufacturersPersenterTests: XCTestCase {
 
     func testRefreshFail_doesNotResetNextPage() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 15), (false, nil), (true, 15)])
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                manufacturersInteractor: interactor,
+                entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
@@ -110,9 +110,9 @@ class ManufacturersPersenterTests: XCTestCase {
 
     func testLoadFail_doesNotIncrementNextPage() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (false, nil), (false, nil)])
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                manufacturersInteractor: interactor,
+                entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
@@ -138,9 +138,9 @@ class ManufacturersPersenterTests: XCTestCase {
 
     func testRefreshSuccess_ContainsData() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (false, nil), (false, nil)])
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                manufacturersInteractor: interactor,
+                entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
@@ -159,9 +159,9 @@ class ManufacturersPersenterTests: XCTestCase {
 
     func testLoadMore_NoData_ShouldNotIncrementNextPage() {
         let interactor = SpyManufacturersInteractor(results: [(true, 15), (true, 0), (true, 0)])
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                manufacturersInteractor: interactor,
+                entitiesInteractor: interactor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: SelectCarInteractor()))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
@@ -191,9 +191,9 @@ class ManufacturersPersenterTests: XCTestCase {
         let selectCarDelegate = SpySelectCarInteractorDelegate()
         selectCarInteractor.selectCarManufacturerDelegate = selectCarDelegate
         selectCarInteractor.selectCarDelegate = selectCarDelegate
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                manufacturersInteractor: manufacturersInteractor,
+                entitiesInteractor: manufacturersInteractor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
         let viewDelegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = viewDelegate
@@ -211,9 +211,9 @@ class ManufacturersPersenterTests: XCTestCase {
     func testRefreshInProgress_RejectsLoadMoreRequest() {
         let manufacturersInteractor = SpyManufacturersInteractor(results: [(true, 15), (true, 15)], executionTime: 0.5)
         let selectCarInteractor = SelectCarInteractor()
-        let presenter = DefaultManufacturersPresenter(
+        let presenter = DefaultEntitiesPresenter(
                 title: "Title",
-                manufacturersInteractor: manufacturersInteractor,
+                entitiesInteractor: manufacturersInteractor,
                 entitySelectionStrategy: ManufacturerSelectionStrategy(interactor: selectCarInteractor))
         let delegate = SpyManufacturersPresenterDelegate()
         presenter.viewDelegate = delegate

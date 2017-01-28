@@ -1,32 +1,32 @@
 //
-//  DefaultManufacturersPresenter.swift
+//  DefaultEntitiesPresenter.swift
 //  SelectACar
 //
 //  Created by Andrei Sherstniuk on 1/26/17.
 //  Copyright © 2017 Andrei Sherstniuk. All rights reserved.
 //
 
-class DefaultManufacturersPresenter: EntitiesPresenter {
+class DefaultEntitiesPresenter: EntitiesPresenter {
     let title: String
     weak var viewDelegate: EntitiesPresenterViewDelegate?
-    private let manufacturersInteractor: ManufacturersInteractor
+    private let entitiesInteractor: ManufacturersInteractor
     private let entitySelectionStrategy: EntitySelectionStrategy
     private var nextPage: Page
-    private var manufacturers: [Entity] = []
+    private var entities: [Entity] = []
     private var isLoading = false
 
     var numberOfEntities: Int {
         get {
-            return manufacturers.count
+            return entities.count
         }
     }
 
     init(title: String,
-            manufacturersInteractor: ManufacturersInteractor,
-            entitySelectionStrategy: EntitySelectionStrategy)
+         entitiesInteractor: ManufacturersInteractor,
+         entitySelectionStrategy: EntitySelectionStrategy)
     {
         self.title = title
-        self.manufacturersInteractor = manufacturersInteractor
+        self.entitiesInteractor = entitiesInteractor
         self.entitySelectionStrategy = entitySelectionStrategy
         nextPage = Page(number: 0, size: 15)
     }
@@ -34,11 +34,11 @@ class DefaultManufacturersPresenter: EntitiesPresenter {
     func refresh() {
         isLoading = true
         let newNextPage = Page(number: 0, size: 15)
-        self.manufacturersInteractor.get(page:newNextPage) { result in
+        self.entitiesInteractor.get(page:newNextPage) { result in
             self.isLoading = false
             switch result {
-                case .Success(let manufacturers):
-                    self.manufacturers = manufacturers
+                case .Success(let entities):
+                    self.entities = entities
                     self.nextPage = newNextPage.next()
                     if let viewDelegate = self.viewDelegate {
                         viewDelegate.entitiesPresenterDidRefresh(self)
@@ -60,16 +60,16 @@ class DefaultManufacturersPresenter: EntitiesPresenter {
         }
 
         isLoading = true
-        self.manufacturersInteractor.get(page:nextPage) { result in
+        self.entitiesInteractor.get(page:nextPage) { result in
             self.isLoading = false
             switch result {
-                case .Success(let manufacturers):
-                    if (manufacturers.count > 0) {
-                        self.manufacturers.append(contentsOf: manufacturers)
+                case .Success(let entities):
+                    if (entities.count > 0) {
+                        self.entities.append(contentsOf: entities)
                         self.nextPage = self.nextPage.next()
                     }
                     if let viewDelegate = self.viewDelegate {
-                        viewDelegate.entitiesPresenter(self, didLoadMoreEntities: manufacturers.count)
+                        viewDelegate.entitiesPresenter(self, didLoadMoreEntities: entities.count)
                     }
                 case .Failure(let error):
                     if let viewDelegate = self.viewDelegate {
@@ -80,7 +80,7 @@ class DefaultManufacturersPresenter: EntitiesPresenter {
     }
 
     func entity(atIndex index: Int) -> Entity {
-        return manufacturers[index]
+        return entities[index]
     }
 
     func select(entity: Entity) {
