@@ -7,6 +7,7 @@
 //
 
 class DefaultManufacturersPresenter: ManufacturersPresenter {
+    let title: String
     weak var viewDelegate: ManufacturersPresenterViewDelegate?
     private let manufacturersInteractor: ManufacturersInteractor
     private let entitySelectionStrategy: EntitySelectionStrategy
@@ -20,7 +21,11 @@ class DefaultManufacturersPresenter: ManufacturersPresenter {
         }
     }
 
-    init(manufacturersInteractor: ManufacturersInteractor, entitySelectionStrategy: EntitySelectionStrategy) {
+    init(title: String,
+            manufacturersInteractor: ManufacturersInteractor,
+            entitySelectionStrategy: EntitySelectionStrategy)
+    {
+        self.title = title
         self.manufacturersInteractor = manufacturersInteractor
         self.entitySelectionStrategy = entitySelectionStrategy
         nextPage = Page(number: 0, size: 15)

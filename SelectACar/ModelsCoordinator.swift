@@ -26,6 +26,7 @@ class ModelsCoordinator {
                 path: "/v1/car-types/main-types",
                 manufacturer: self.selectCarInteractor.selectedManufacturer()!)
         let presenter = DefaultManufacturersPresenter(
+                title: "Models",
                 manufacturersInteractor: WebManufacturersInteractor(
                         urlBuilder: urlBuilder,
                         entityFactory: ModelFactory()),

@@ -17,6 +17,8 @@ protocol ManufacturersPresenterViewDelegate: class {
 }
 
 protocol ManufacturersPresenter {
+    var title: String { get }
+
     weak var viewDelegate: ManufacturersPresenterViewDelegate? { get set }
 
     var numberOfManufacturers: Int { get }

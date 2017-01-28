@@ -27,6 +27,7 @@ class ManufacturersCoordinator {
                 configuration: DefaultWebConfiguration(),
                 path: "/v1/car-types/manufacturer")
         let presenter = DefaultManufacturersPresenter(
+                title: "Manufacturers",
                 manufacturersInteractor: WebManufacturersInteractor(
                         urlBuilder: urlBuilder,
                         entityFactory: ManufacturerFactory()),
