@@ -15,22 +15,22 @@
 		ABC3504E1F91E1E0DCB9F9BA /* ManufacturerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC358B58C5B0D567426D23F /* ManufacturerFactory.swift */; };
 		ABC350752063318109FE9709 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35F5127714B15C3C3C314 /* Entity.swift */; };
 		ABC3509185C0ADC915B6EE39 /* DefaultManufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35D557514680FE6E07B8B /* DefaultManufacturer.swift */; };
+		ABC350DCD4F503DD0C45E3B2 /* ModelSelectionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35F854087A9412E700F53 /* ModelSelectionStrategy.swift */; };
+		ABC350F9DAF332EBFAD854E9 /* EntitySelectionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3586D1423C7E4EC853122 /* EntitySelectionStrategy.swift */; };
 		ABC35129AB1B8684FDDCF6F8 /* ManufacturersPagedURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC358776ED4FDE694924DC7 /* ManufacturersPagedURLBuilder.swift */; };
-		ABC3517BF80D0AA17A156695 /* ManufacturerSelectionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35E375D45C0A5C1BFAAFC /* ManufacturerSelectionStrategy.swift */; };
 		ABC351F2FEE3D9F8C1F5E251 /* DefaultEntitiesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35DFAD33A69736791E645 /* DefaultEntitiesPresenter.swift */; };
 		ABC35217E57F953503D82056 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC357281DF2887C5FFFCDB2 /* Page.swift */; };
 		ABC3522E39C77C78C6C4015B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABC354D14794B534576727E9 /* LaunchScreen.storyboard */; };
 		ABC3529CD4152141850A0066 /* EntitiesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC3553D12281A2A3D6B5935 /* EntitiesPresenter.swift */; };
 		ABC3530BE1B33A03B8AB4ACB /* SelectCarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC355F24607E65F27F95952 /* SelectCarInteractor.swift */; };
-		ABC35385181F344574F2BF27 /* EntitySelectionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35583BD2B3E266667AC05 /* EntitySelectionStrategy.swift */; };
 		ABC353AB401CB298BF7B64CA /* DefaultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35FBE49418D0EE15142EA /* DefaultModel.swift */; };
 		ABC35449B9A5947FC2D9173A /* SpySelectCarInteractorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35A7F3901EAAD5801ACBB /* SpySelectCarInteractorDelegate.swift */; };
 		ABC354D47B56D638F8DC7D29 /* SpyEntitiesPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35369167CC5EDE124AA50 /* SpyEntitiesPresenterDelegate.swift */; };
 		ABC356900D583E83D70CBCA5 /* StubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35F55D569B6EFDCCC22C6 /* StubModel.swift */; };
 		ABC35733E5E2E17501D57705 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35ACDFED4C25A8524158E /* Model.swift */; };
+		ABC357BC0C5665C925C3F2CE /* ManufacturerSelectionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35CCB15826D81C5E3C1EE /* ManufacturerSelectionStrategy.swift */; };
 		ABC3582FA499EDF359EB93B8 /* DefaultWebConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35538E8CFD322C22FAF6A /* DefaultWebConfiguration.swift */; };
 		ABC358C8D6C1786F8A44C03B /* ModelsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35FBE2C256E7719315B25 /* ModelsCoordinator.swift */; };
-		ABC358D3F5D0653B1D745BB7 /* ModelSelectionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC35164EFC0CAA25DF6A6AE /* ModelSelectionStrategy.swift */; };
 		ABC35A3F504F7E5B5680621F /* EntityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC359D28CDF321A2452F9BD /* EntityCell.swift */; };
 		ABC35A76E6AA8A8193B96A11 /* ModelsPagedURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC355B993080DCD7786623B /* ModelsPagedURLBuilder.swift */; };
 		ABC35AE8DB7478A0EE8BB0A6 /* SpyEntitiesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC350A80C0EFEB163800ED4 /* SpyEntitiesInteractor.swift */; };
@@ -69,18 +69,17 @@
 		ABC350A80C0EFEB163800ED4 /* SpyEntitiesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyEntitiesInteractor.swift; sourceTree = "<group>"; };
 		ABC350E0C690961B013AF2F5 /* EntitiesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitiesInteractor.swift; sourceTree = "<group>"; };
 		ABC350E5AC4DE4DE61D1FE0C /* EntitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitiesViewController.swift; sourceTree = "<group>"; };
-		ABC35164EFC0CAA25DF6A6AE /* ModelSelectionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSelectionStrategy.swift; sourceTree = "<group>"; };
 		ABC351B72270C5E820F244E8 /* ManufacturersCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersCoordinator.swift; sourceTree = "<group>"; };
 		ABC3524E99BF30A1F13474DC /* WebEntitiesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebEntitiesInteractor.swift; sourceTree = "<group>"; };
 		ABC3525D1352C5BF47BB02E8 /* StubManufacturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubManufacturer.swift; sourceTree = "<group>"; };
 		ABC35369167CC5EDE124AA50 /* SpyEntitiesPresenterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpyEntitiesPresenterDelegate.swift; sourceTree = "<group>"; };
 		ABC35538E8CFD322C22FAF6A /* DefaultWebConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultWebConfiguration.swift; sourceTree = "<group>"; };
 		ABC3553D12281A2A3D6B5935 /* EntitiesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitiesPresenter.swift; sourceTree = "<group>"; };
-		ABC35583BD2B3E266667AC05 /* EntitySelectionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitySelectionStrategy.swift; sourceTree = "<group>"; };
 		ABC355B993080DCD7786623B /* ModelsPagedURLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsPagedURLBuilder.swift; sourceTree = "<group>"; };
 		ABC355F24607E65F27F95952 /* SelectCarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCarInteractor.swift; sourceTree = "<group>"; };
 		ABC3562089D25A9D0DBD88E0 /* PagedURLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedURLBuilder.swift; sourceTree = "<group>"; };
 		ABC357281DF2887C5FFFCDB2 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		ABC3586D1423C7E4EC853122 /* EntitySelectionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitySelectionStrategy.swift; sourceTree = "<group>"; };
 		ABC358776ED4FDE694924DC7 /* ManufacturersPagedURLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersPagedURLBuilder.swift; sourceTree = "<group>"; };
 		ABC358B58C5B0D567426D23F /* ManufacturerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerFactory.swift; sourceTree = "<group>"; };
 		ABC359D28CDF321A2452F9BD /* EntityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityCell.swift; sourceTree = "<group>"; };
@@ -88,14 +87,15 @@
 		ABC35A7F3901EAAD5801ACBB /* SpySelectCarInteractorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpySelectCarInteractorDelegate.swift; sourceTree = "<group>"; };
 		ABC35ACDFED4C25A8524158E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		ABC35B58BA6B5ED7FC25D47F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SelectACar/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
+		ABC35CCB15826D81C5E3C1EE /* ManufacturerSelectionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerSelectionStrategy.swift; sourceTree = "<group>"; };
 		ABC35D557514680FE6E07B8B /* DefaultManufacturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultManufacturer.swift; sourceTree = "<group>"; };
 		ABC35DFAD33A69736791E645 /* DefaultEntitiesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultEntitiesPresenter.swift; sourceTree = "<group>"; };
 		ABC35E1C7311DCB7D7DDF7ED /* ModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelFactory.swift; sourceTree = "<group>"; };
-		ABC35E375D45C0A5C1BFAAFC /* ManufacturerSelectionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturerSelectionStrategy.swift; sourceTree = "<group>"; };
 		ABC35EAEBAC4B26EE79E18D8 /* EntityFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityFactory.swift; sourceTree = "<group>"; };
 		ABC35EFD0AA593A1595A99F3 /* WebConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebConfiguration.swift; sourceTree = "<group>"; };
 		ABC35F5127714B15C3C3C314 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		ABC35F55D569B6EFDCCC22C6 /* StubModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubModel.swift; sourceTree = "<group>"; };
+		ABC35F854087A9412E700F53 /* ModelSelectionStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSelectionStrategy.swift; sourceTree = "<group>"; };
 		ABC35FBE2C256E7719315B25 /* ModelsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsCoordinator.swift; sourceTree = "<group>"; };
 		ABC35FBE49418D0EE15142EA /* DefaultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,10 +170,13 @@
 				ABC35FBE49418D0EE15142EA /* DefaultModel.swift */,
 				ABC35F5127714B15C3C3C314 /* Entity.swift */,
 				ABC35EAEBAC4B26EE79E18D8 /* EntityFactory.swift */,
+				ABC3586D1423C7E4EC853122 /* EntitySelectionStrategy.swift */,
 				ABC35062C8DCE7355DC53059 /* Manufacturer.swift */,
 				ABC358B58C5B0D567426D23F /* ManufacturerFactory.swift */,
+				ABC35CCB15826D81C5E3C1EE /* ManufacturerSelectionStrategy.swift */,
 				ABC35ACDFED4C25A8524158E /* Model.swift */,
 				ABC35E1C7311DCB7D7DDF7ED /* ModelFactory.swift */,
+				ABC35F854087A9412E700F53 /* ModelSelectionStrategy.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -183,9 +186,6 @@
 			children = (
 				ABC35DFAD33A69736791E645 /* DefaultEntitiesPresenter.swift */,
 				ABC3553D12281A2A3D6B5935 /* EntitiesPresenter.swift */,
-				ABC35583BD2B3E266667AC05 /* EntitySelectionStrategy.swift */,
-				ABC35E375D45C0A5C1BFAAFC /* ManufacturerSelectionStrategy.swift */,
-				ABC35164EFC0CAA25DF6A6AE /* ModelSelectionStrategy.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -368,15 +368,15 @@
 				ABC35BC4929B0D1CAE306914 /* EntitiesViewController.swift in Sources */,
 				ABC35EDB923CA9AC4B04032E /* ManufacturersCoordinator.swift in Sources */,
 				ABC358C8D6C1786F8A44C03B /* ModelsCoordinator.swift in Sources */,
-				ABC358D3F5D0653B1D745BB7 /* ModelSelectionStrategy.swift in Sources */,
-				ABC35385181F344574F2BF27 /* EntitySelectionStrategy.swift in Sources */,
-				ABC3517BF80D0AA17A156695 /* ManufacturerSelectionStrategy.swift in Sources */,
 				ABC35A76E6AA8A8193B96A11 /* ModelsPagedURLBuilder.swift in Sources */,
 				ABC35129AB1B8684FDDCF6F8 /* ManufacturersPagedURLBuilder.swift in Sources */,
 				ABC35217E57F953503D82056 /* Page.swift in Sources */,
 				ABC3582FA499EDF359EB93B8 /* DefaultWebConfiguration.swift in Sources */,
 				ABC35EA5883F9C619C5A4EC9 /* WebConfiguration.swift in Sources */,
 				ABC35E5B314D66F091E1A939 /* PagedURLBuilder.swift in Sources */,
+				ABC350F9DAF332EBFAD854E9 /* EntitySelectionStrategy.swift in Sources */,
+				ABC350DCD4F503DD0C45E3B2 /* ModelSelectionStrategy.swift in Sources */,
+				ABC357BC0C5665C925C3F2CE /* ManufacturerSelectionStrategy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
