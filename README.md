@@ -6,3 +6,7 @@
 -	Use custom cells. Even rows should have a different background color than odd rows.
 -	As the web services can return a really long list of manufacturers and models, there should some pagination in the list. Page size: 15 elements.
 
+
+![Manufacturers](https://raw.githubusercontent.com/AS7C2/select-a-car/master/Manufacturers.png)
+![Models](https://raw.githubusercontent.com/AS7C2/select-a-car/master/Models.png)
+![Selection](https://raw.githubusercontent.com/AS7C2/select-a-car/master/Selection.png)
